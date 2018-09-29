@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {AppService} from './app.service';
+import {CookieService} from 'angular2-cookie/core';
 
 @Injectable()
 export class LoginService {
 
+  token = '';
+
   constructor(private http: HttpClient,
-              private router: Router) { }
+              private router: Router,
+              private appService: AppService,
+              private cookie: CookieService) { }
 
 
   prepare(obj): any {
@@ -30,11 +36,17 @@ export class LoginService {
       'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
       'noToken': 'true'
     });
-    return this.http.post(`/rest/oauth/token`, request.toString(), {headers: headers}).subscribe(
+    return this.http.post<any>(`/rest/oauth/token`, request.toString(), {headers: headers}).subscribe(
       data => {
         console.log(data);
-        this.router.navigate(['/zhandos']);
+        this.cookie.put('token', data.access_token);
+        console.log(this.cookie.get('token'));
+        this.router.navigate(['home']);
       }
     );
+  }
+
+  getToken() {
+    return this.token;
   }
 }

@@ -1,0 +1,17 @@
+<div class="container" style="margin-top:20px" *ngIf="this.user">
+  <div class="row d-flex flex-row-reverse">
+    <div class="d-flex flex-row-reverse">
+      <button class="btn btn-sm pull-right" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  <div>
+    <h1>Welcome {{this.user.login }}</h1>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      Featured
+    </div>
+  </div>
+</div>
+
+

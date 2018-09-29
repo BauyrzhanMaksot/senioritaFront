@@ -1,0 +1,41 @@
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>Ticocar</h1>
+</div>
+<nav class="navbar bg-dark navbar-dark d-flex flex-row-reverse">
+  <div>
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <label style="color: white; margin-right: 10px" for="login">
+          Login
+        </label>
+        <div>
+          <input type="login" formControlName='login' id="login" style="margin-right: 10px">
+        </div>
+        <label style="color: white; margin-right: 10px" for="password">
+          Password
+        </label>
+        <div>
+          <input type="password" formControlName='password' id="password"  style="margin-right: 10px">
+        </div>
+        <button class="btn btn-success btn-sm pull-right" type="submit">Submit</button>
+      </div>
+    </form>
+      <a class="btn float-right" (click)="createAccount()" style="color: white">Create account</a>
+  </div>
+</nav>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>About Application</h2>
+      <p>
+        This application is the best.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Senior Project, Nazarbayev University</p>
+</div>
+
