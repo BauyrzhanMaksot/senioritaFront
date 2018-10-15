@@ -8,6 +8,13 @@
         <input type="login" formControlName='login' id="login" class="form-control">
       </div>
     </div>
+    <div class="form-group">
+      <label for="role" class="col-sm-3">Role</label>
+      <select class="col-sm-6" id="role" formControlName="role" required>
+        <option [value]="2">Client</option>
+        <option [value]="3">Driver</option>
+      </select>
+    </div>
     <div class="form-group row">
       <label class="col-sm-3" for="email">
         Email

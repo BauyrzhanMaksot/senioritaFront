@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     this.formRegister = new FormGroup({
       'login': new FormControl('', Validators.required),
       'email': new FormControl('', Validators.required),
+      'role': new FormControl('', Validators.required),
       'password': new FormControl('', Validators.required),
       'rePassword': new FormControl('', Validators.required)
     });
@@ -30,6 +31,7 @@ export class RegisterComponent implements OnInit {
     this.userDto.login = this.formRegister.get('login').value;
     this.userDto.password = this.formRegister.get('password').value;
     this.userDto.email = this.formRegister.get('email').value;
+    this.userDto.roleId = +this.formRegister.get('role').value;
     if (this.userDto.login == '' || this.userDto.password == '') {
       return null;
     }

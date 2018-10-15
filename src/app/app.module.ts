@@ -13,6 +13,9 @@ import {CookieService} from 'angular2-cookie/core';
 import { RegisterComponent } from './register/register.component';
 import {RegisterService} from './register.service';
 import { HomeComponent } from './home/home.component';
+import { ClientRequestComponent } from './client-request/client-request.component';
+import { DriverOfferComponent } from './driver-offer/driver-offer.component';
+import {ClientRequestService} from './client-request.service';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ClientRequestComponent,
+    DriverOfferComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { HomeComponent } from './home/home.component';
               AppService,
               CookieService,
               RegisterService,
+              ClientRequestService,
               {
                 provide: HTTP_INTERCEPTORS,
                 useClass: AuthorizeInterceptor,
