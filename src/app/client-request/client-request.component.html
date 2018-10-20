@@ -24,16 +24,19 @@
         <input type="text" formControlName='price' id="price" class="form-control">
       </div>
     </div>
-    <button class="btn btn-success btn-sm float-right" type="submit">Submit</button>
+    <button class="btn btn-primary btn-sm float-right" type="submit">Submit</button>
   </form>
 </div>
-
+<br>
+<br>
 <div>
-  <div *ngFor="let request of clientRequests">
-    Point A: {{request.pointA}}
-    Point B: {{request.pointB}}
-    Price: {{request.price}}
-    Login: <span *ngIf="request.client">{{ request.client.login }}</span>
+  <h1>Available Offers</h1>
+  <div *ngFor="let offer of driverOffers" class="row" style="margin: 2px">
+    Point A: {{offer.pointA}}
+    Point B: {{offer.pointB}}
+    Price: {{offer.price}}
+    Login: <span *ngIf="offer.driver">{{ offer.driver.login }}</span>
     <br>
+    <button class="btn btn-success btn-sm" style="margin: 2px" (click)="acceptOffer(offer.id)">Accept</button>
   </div>
 </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserDto} from '../userDto';
 import {ClientRequestService} from '../client-request.service';
+import {DriverOfferService} from '../driver-offer.service';
+import {OrderService} from '../order.service';
 
 @Component({
   selector: 'app-client-request',
@@ -11,9 +12,11 @@ import {ClientRequestService} from '../client-request.service';
 export class ClientRequestComponent implements OnInit {
 
   clientForm: FormGroup;
-  clientRequests: any;
+  driverOffers: any;
   request: any;
-  constructor(private clientService: ClientRequestService) {
+  constructor(private clientService: ClientRequestService,
+              private driverService: DriverOfferService,
+              private orderService: OrderService) {
   }
 
   ngOnInit() {
@@ -22,12 +25,12 @@ export class ClientRequestComponent implements OnInit {
       'pointB': new FormControl('', Validators.required),
       'price': new FormControl('', Validators.required)
     });
-    this.getRequests();
+    this.getOffers();
   }
 
-  getRequests() {
-    this.clientService.getRequests().subscribe( data => {
-      this.clientRequests = data;
+  getOffers() {
+    this.driverService.getOffers().subscribe( data => {
+      this.driverOffers = data;
     });
   }
 
@@ -40,6 +43,13 @@ export class ClientRequestComponent implements OnInit {
       return null;
     }
     this.clientService.putRequest(this.request).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  acceptOffer(offer_id: number) {
+    console.log("accepted");
+    this.orderService.acceptOffer(offer_id).subscribe(data => {
       console.log(data);
     });
   }

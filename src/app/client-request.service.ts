@@ -7,7 +7,7 @@ export class ClientRequestService {
   constructor(private http: HttpClient) { }
 
   putRequest(request: any) {
-    return this.http.post('/rest/clientRequest', request);
+    return this.http.post('/rest/putRequest', request);
   }
 
   getRequests() {

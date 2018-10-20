@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ClientRequestService} from '../client-request.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {DriverOfferService} from '../driver-offer.service';
 
 @Component({
   selector: 'app-driver-offer',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverOfferComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  driverForm: FormGroup;
+  clientRequests: any;
+  offer: any;
+  constructor(private driverService: DriverOfferService,
+              private clientService: ClientRequestService) {
   }
 
+  ngOnInit() {
+    this.driverForm = new FormGroup({
+      'pointA': new FormControl('', Validators.required),
+      'pointB': new FormControl('', Validators.required),
+      'price': new FormControl('', Validators.required)
+    });
+    this.getRequests();
+  }
+
+  getRequests() {
+    this.clientService.getRequests().subscribe( data => {
+      this.clientRequests = data;
+    });
+  }
+
+  onSubmit() {
+    this.offer = new Object();
+    this.offer.pointA = this.driverForm.get('pointA').value;
+    this.offer.pointB = this.driverForm.get('pointB').value;
+    this.offer.price = this.driverForm.get('price').value;
+    if (this.offer.pointA == '' || this.offer.pointB == '') {
+      return null;
+    }
+    this.driverService.putOffer(this.offer).subscribe(data => {
+      console.log(data);
+    });
+  }
 }
+

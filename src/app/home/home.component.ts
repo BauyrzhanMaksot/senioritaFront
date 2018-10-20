@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
 import {AppService} from '../app.service';
 import {Router} from '@angular/router';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +12,16 @@ import {Router} from '@angular/router';
 export class HomeComponent implements OnInit {
   user: any;
   constructor(private appService: AppService,
-              private cookie: CookieService,
-              private router: Router) { }
+              private router: Router,
+              private loginService: LoginService) { }
 
   ngOnInit() {
-    console.log('zhandos');
-    console.log(this.cookie.get('token'));
     this.isAuthorized();
     this.getData();
   }
 
   isAuthorized() {
-    if (this.cookie.get('token') == null || this.cookie.get('token') == undefined) {
+    if (localStorage.getItem('token') == null || localStorage.getItem('token') == undefined) {
       this.router.navigate(['login']);
     }
   }
@@ -42,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   logout() {
     console.log('logout');
-    this.cookie.removeAll();
+    this.loginService.logout();
     this.router.navigate(['login']);
   }
 

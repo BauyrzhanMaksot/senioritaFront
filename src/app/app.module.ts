@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { ClientRequestComponent } from './client-request/client-request.component';
 import { DriverOfferComponent } from './driver-offer/driver-offer.component';
 import {ClientRequestService} from './client-request.service';
+import {DriverOfferService} from './driver-offer.service';
+import {OrderService} from './order.service';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import {ClientRequestService} from './client-request.service';
               CookieService,
               RegisterService,
               ClientRequestService,
+              DriverOfferService,
+              OrderService,
               {
                 provide: HTTP_INTERCEPTORS,
                 useClass: AuthorizeInterceptor,

@@ -6,19 +6,18 @@ import {CookieService} from 'angular2-cookie/core';
 @Injectable()
 export class AuthorizeInterceptor implements HttpInterceptor {
 
-  constructor(private loginService: LoginService,
-              private cookie: CookieService) {
+  constructor(private loginService: LoginService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    if (req.headers.get('noToken') === 'true' || this.cookie.get('token') === null)
+    if (req.headers.get('noToken') === 'true' || localStorage.getItem('token') === null)
       return next.handle(req);
     const newRequest = req.clone({
       headers: req.headers.set(
-        'Authorization', 'Bearer ' + this.cookie.get('token')
+        'Authorization', 'Bearer ' + localStorage.getItem('token')
       )
     });
-    console.log(newRequest);
+    console.log(newRequest + " Bauka " + localStorage.getItem('token'));
     return next.handle(newRequest);
   }
 }

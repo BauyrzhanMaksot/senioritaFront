@@ -39,14 +39,13 @@ export class LoginService {
     return this.http.post<any>(`/rest/oauth/token`, request.toString(), {headers: headers}).subscribe(
       data => {
         console.log(data);
-        this.cookie.put('token', data.access_token);
-        console.log(this.cookie.get('token'));
+        localStorage.setItem('token', data.access_token);
         this.router.navigate(['home']);
       }
     );
   }
 
-  getToken() {
-    return this.token;
+  logout() {
+    localStorage.clear();
   }
 }
