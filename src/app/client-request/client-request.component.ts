@@ -14,6 +14,8 @@ export class ClientRequestComponent implements OnInit {
   clientForm: FormGroup;
   driverOffers: any;
   request: any;
+  histories: any;
+
   constructor(private clientService: ClientRequestService,
               private driverService: DriverOfferService,
               private orderService: OrderService) {
@@ -26,6 +28,14 @@ export class ClientRequestComponent implements OnInit {
       'price': new FormControl('', Validators.required)
     });
     this.getOffers();
+    this.getHistory();
+  }
+
+  getHistory() {
+    this.clientService.getHistoryClient().subscribe( data => {
+      console.log(data);
+      this.histories = data;
+    });
   }
 
   getOffers() {
@@ -43,7 +53,6 @@ export class ClientRequestComponent implements OnInit {
       return null;
     }
     this.clientService.putRequest(this.request).subscribe(data => {
-      console.log(data);
     });
   }
 
@@ -51,6 +60,8 @@ export class ClientRequestComponent implements OnInit {
     console.log("accepted");
     this.orderService.acceptOffer(offer_id).subscribe(data => {
       console.log(data);
+      this.getOffers();
+      this.getHistory();
     });
   }
 }

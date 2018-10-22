@@ -29,14 +29,27 @@
 </div>
 <br>
 <br>
-<div>
-  <h1>Available Offers</h1>
-  <div *ngFor="let offer of driverOffers" class="row" style="margin: 2px">
-    Point A: {{offer.pointA}}
-    Point B: {{offer.pointB}}
-    Price: {{offer.price}}
-    Login: <span *ngIf="offer.driver">{{ offer.driver.login }}</span>
-    <br>
-    <button class="btn btn-success btn-sm" style="margin: 2px" (click)="acceptOffer(offer.id)">Accept</button>
+<div class="row" style="margin: 7px">
+  <div style="margin: 7px">
+    <h1>Available Offers</h1>
+    <div *ngFor="let offer of driverOffers" class="row" style="margin: 2px">
+      Point A: {{offer.pointA}}
+      Point B: {{offer.pointB}}
+      Price: {{offer.price}}
+      Login: <span *ngIf="offer.driver">{{ offer.driver.login }}</span>
+      <br>
+      <button class="btn btn-success btn-sm" style="margin: 2px" (click)="acceptOffer(offer.id)">Accept</button>
+    </div>
   </div>
+  <div style="margin: 7px">
+    <h1>History</h1>
+    <div *ngFor="let history of histories" class="row" style="margin: 2px">
+      Point A: {{history.pointA}}
+      Point B: {{history.pointB}}
+      Price: {{history.price}}
+      Driver: <span *ngIf="history.driver">{{ history.driver.login }}</span>
+      <br>
+    </div>
+  </div>
+
 </div>

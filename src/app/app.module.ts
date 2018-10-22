@@ -18,6 +18,7 @@ import { DriverOfferComponent } from './driver-offer/driver-offer.component';
 import {ClientRequestService} from './client-request.service';
 import {DriverOfferService} from './driver-offer.service';
 import {OrderService} from './order.service';
+import {DriverService} from './driver.service';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {OrderService} from './order.service';
               ClientRequestService,
               DriverOfferService,
               OrderService,
+              DriverService,
               {
                 provide: HTTP_INTERCEPTORS,
                 useClass: AuthorizeInterceptor,

@@ -36,13 +36,7 @@ export class LoginService {
       'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
       'noToken': 'true'
     });
-    return this.http.post<any>(`/rest/oauth/token`, request.toString(), {headers: headers}).subscribe(
-      data => {
-        console.log(data);
-        localStorage.setItem('token', data.access_token);
-        this.router.navigate(['home']);
-      }
-    );
+    return this.http.post<any>(`/rest/oauth/token`, request.toString(), {headers: headers});
   }
 
   logout() {

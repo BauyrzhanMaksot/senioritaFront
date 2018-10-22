@@ -29,12 +29,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formLogin);
-    this.loginService.login(this.formLogin.get('login').value, this.formLogin.get('password').value);
-    this.router.navigate(['home']);
+    this.loginService.login(this.formLogin.get('login').value, this.formLogin.get('password').value).subscribe(
+      data => {
+        console.log(data);
+        localStorage.setItem('token', data.access_token);
+        this.router.navigate(['home']);
+      }, error => {
+        console.log('error');
+      }
+    );
   }
 
   createAccount() {
-    console.log("creatingAccount");
+    console.log('creatingAccount');
     this.router.navigate(['register']);
   }
 }

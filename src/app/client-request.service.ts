@@ -13,4 +13,8 @@ export class ClientRequestService {
   getRequests() {
     return this.http.get('/rest/getRequests');
   }
+
+  getHistoryClient() {
+    return this.http.get('/rest/getHistoryClient');
+  }
 }

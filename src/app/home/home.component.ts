@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CookieService} from 'angular2-cookie/core';
 import {AppService} from '../app.service';
 import {Router} from '@angular/router';
 import {LoginService} from '../login.service';

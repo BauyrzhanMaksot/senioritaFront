@@ -20,24 +20,43 @@
         Email
       </label>
       <div class="col-sm-6">
-        <input type="email" formControlName='email' id="email" class="form-control">
+        <input type="email" formControlName='email' id="email" class="form-control" formGroupName="password" [ngClass]="{
+        'is-invalid': getEmail().invalid && (getEmail().dirty || getEmail().touched),
+        'is-valid': getEmail().valid && (getEmail().dirty || getEmail().touched)
+      }">
+        <p style="color: red; margin-bottom: 2px" *ngIf="getEmail().invalid && (getEmail().dirty || getEmail().touched)"> Your organization is not subscribed</p>
       </div>
     </div>
-    <div class="form-group row">
-      <label class="col-sm-3" for="password">
-        Password
-      </label>
-      <div class="col-sm-6">
-        <input type="password" formControlName='password' id="password" class="form-control">
+    <div formGroupName="password" [ngClass]="{
+        'is-invalid': getPassword().invalid && (getPassword().dirty || getPassword().touched),
+        'is-valid': getPassword().valid && (getPassword().dirty || getPassword().touched)
+      }">
+      <div class="form-group row">
+        <label class="col-sm-3" for="password">
+          Password
+        </label>
+        <div class="col-sm-6">
+          <input type="password" formControlName='old' id="password" class="form-control" [ngClass]="{
+        'is-invalid': getPassword().invalid && (getPassword().dirty || getPassword().touched),
+        'is-valid': getPassword().valid && (getPassword().dirty || getPassword().touched)
+      }">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-sm-3" for="rePassword">
-        Re-Password
-      </label>
-      <div class="col-sm-6">
-        <input type="password" formControlName='rePassword' id="rePassword" class="form-control">
+      <div class="form-group row">
+        <label class="col-sm-3" for="rePassword">
+          Re-Password
+        </label>
+        <div class="col-sm-6">
+          <input type="password" formControlName='new' id="rePassword" class="form-control" [ngClass]="{
+        'is-invalid': getPassword().invalid && (getPassword().dirty || getPassword().touched),
+        'is-valid': getPassword().valid && (getPassword().dirty || getPassword().touched)
+      }">
+        </div>
       </div>
+      <p *ngIf="getOldPassword().errors == null && getPassword().errors != null && getPassword().errors['error'] != null &&
+      (getPassword().touched || getPassword().dirty)">Passwords should match</p>
+      <p *ngIf="getOldPassword().errors != null &&
+      (getOldPassword().touched || getOldPassword().dirty)">The password should at least contain 8 characters</p>
     </div>
     <button class="btn btn-success btn-sm float-right" type="submit">Submit</button>
   </form>

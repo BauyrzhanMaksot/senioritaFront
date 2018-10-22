@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ClientRequestService} from '../client-request.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DriverOfferService} from '../driver-offer.service';
+import {DriverService} from '../driver.service';
 
 @Component({
   selector: 'app-driver-offer',
@@ -14,6 +15,7 @@ export class DriverOfferComponent implements OnInit {
   clientRequests: any;
   offer: any;
   constructor(private driverService: DriverOfferService,
+              private driverOnlineService: DriverService,
               private clientService: ClientRequestService) {
   }
 
@@ -24,6 +26,13 @@ export class DriverOfferComponent implements OnInit {
       'price': new FormControl('', Validators.required)
     });
     this.getRequests();
+    this.getOnlineClients();
+  }
+
+  getOnlineClients() {
+    this.driverOnlineService.getOnlineClients().subscribe(data => {
+      console.log(data);
+    });
   }
 
   getRequests() {
