@@ -58,6 +58,6 @@
       <p *ngIf="getOldPassword().errors != null &&
       (getOldPassword().touched || getOldPassword().dirty)">The password should at least contain 8 characters</p>
     </div>
-    <button class="btn btn-success btn-sm float-right" type="submit">Submit</button>
+    <button class="btn btn-success btn-sm float-right" type="submit" [disabled]="this.formRegister.invalid">Submit</button>
   </form>
 </div>

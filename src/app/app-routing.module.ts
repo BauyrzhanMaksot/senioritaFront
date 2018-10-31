@@ -5,6 +5,9 @@ import {RegisterComponent} from './register/register.component';
 import {HomeComponent} from './home/home.component';
 import {ClientRequestComponent} from './client-request/client-request.component';
 import {DriverOfferComponent} from './driver-offer/driver-offer.component';
+import {DriverGuard} from './driver.guard';
+import {ClientGuard} from './client.guard';
+import {ForbiddenComponent} from './forbidden/forbidden.component';
 
 const routes: Routes = [
   {
@@ -18,10 +21,16 @@ const routes: Routes = [
     component: HomeComponent
   }, {
     path: 'client-request',
+    canActivate: [ClientGuard],
     component: ClientRequestComponent
   }, {
     path: 'driver-offer',
+    canActivate: [DriverGuard],
     component: DriverOfferComponent
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent
   },
   {
     path: '',

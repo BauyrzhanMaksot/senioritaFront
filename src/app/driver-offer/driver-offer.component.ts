@@ -41,6 +41,10 @@ export class DriverOfferComponent implements OnInit {
     });
   }
 
+  onSearch() {
+    
+  }
+
   onSubmit() {
     this.offer = new Object();
     this.offer.pointA = this.driverForm.get('pointA').value;

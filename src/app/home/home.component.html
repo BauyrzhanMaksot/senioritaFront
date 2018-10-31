@@ -12,6 +12,14 @@
       Featured
     </div>
   </div>
+  <br>
+  <div [hidden]="this.user.role.name=='driver'">
+    <a class="btn btn-primary" (click)="makeRequest()">Make Request</a>
+  </div>
+  <br>
+  <div [hidden]="this.user.role.name=='client'">
+    <a class="btn btn-primary" (click)="makeOffer()">Make Offer</a>
+  </div>
 </div>
 
 

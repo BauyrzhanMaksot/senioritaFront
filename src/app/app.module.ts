@@ -19,6 +19,10 @@ import {ClientRequestService} from './client-request.service';
 import {DriverOfferService} from './driver-offer.service';
 import {OrderService} from './order.service';
 import {DriverService} from './driver.service';
+import {DriverGuard} from './driver.guard';
+import {CurrentUser} from './current-user';
+import {ClientGuard} from './client.guard';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 
 @NgModule({
@@ -28,7 +32,8 @@ import {DriverService} from './driver.service';
     RegisterComponent,
     HomeComponent,
     ClientRequestComponent,
-    DriverOfferComponent
+    DriverOfferComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,10 @@ import {DriverService} from './driver.service';
                 provide: HTTP_INTERCEPTORS,
                 useClass: AuthorizeInterceptor,
                 multi: true
-              }],
+              },
+              DriverGuard,
+              ClientGuard,
+              CurrentUser],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

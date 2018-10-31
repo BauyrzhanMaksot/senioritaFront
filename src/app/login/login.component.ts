@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../login.service';
 import {AppService} from '../app.service';
 import {Router} from '@angular/router';
+import {CurrentUser} from '../current-user';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService,
               private appService: AppService,
-              private router: Router) {
+              private router: Router,
+              private currentUser: CurrentUser) {
   }
 
   ngOnInit() {
@@ -33,9 +35,19 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data);
         localStorage.setItem('token', data.access_token);
-        this.router.navigate(['home']);
+        this.getUser();
       }, error => {
         console.log('error');
+      }
+    );
+  }
+
+  getUser() {
+    this.appService.getData3().subscribe(
+      (user) => {
+        console.log(user);
+        this.currentUser.setCurrentUser(user);
+        this.router.navigate(['home']);
       }
     );
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AppService} from '../app.service';
 import {Router} from '@angular/router';
 import {LoginService} from '../login.service';
+import {CurrentUser} from '../current-user';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
   user: any;
   constructor(private appService: AppService,
               private router: Router,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private currentUser: CurrentUser) { }
 
   ngOnInit() {
     this.isAuthorized();
@@ -32,10 +34,8 @@ export class HomeComponent implements OnInit {
     this.appService.getData2().subscribe(data => {
       console.log(data);
     });
-    this.appService.getData3().subscribe(data => {
-      console.log(data);
-      this.user = data;
-    });
+    this.user = JSON.parse(this.currentUser.getCurrentUser());
+    console.log(this.user);
   }
 
   logout() {
@@ -44,4 +44,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  makeOffer() {
+    this.router.navigate(['driver-offer']);
+  }
+
+  makeRequest() {
+    this.router.navigate(['client-request']);
+  }
 }

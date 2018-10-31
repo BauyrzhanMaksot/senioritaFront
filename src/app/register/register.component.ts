@@ -44,6 +44,7 @@ export class RegisterComponent implements OnInit {
   getEmail() {
     return this.formRegister.get('email');
   }
+
   onSubmit() {
     console.log(this.formRegister);
     this.userDto = new UserDto();
