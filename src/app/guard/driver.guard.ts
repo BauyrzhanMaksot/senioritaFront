@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import {CurrentUser} from './current-user';
+import {CurrentUser} from '../model/current-user';
 
 @Injectable()
 export class DriverGuard implements CanActivate {

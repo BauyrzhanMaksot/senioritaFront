@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ClientRequestService} from '../client-request.service';
-import {DriverOfferService} from '../driver-offer.service';
-import {OrderService} from '../order.service';
+import {ClientRequestService} from '../services/client-request.service';
+import {DriverOfferService} from '../services/driver-offer.service';
+import {OrderService} from '../services/order.service';
 
 @Component({
   selector: 'app-client-request',

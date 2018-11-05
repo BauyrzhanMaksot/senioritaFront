@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ClientRequestService} from '../client-request.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {DriverOfferService} from '../driver-offer.service';
-import {DriverService} from '../driver.service';
+import {ClientRequestService} from '../services/client-request.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {DriverOfferService} from '../services/driver-offer.service';
+import {DriverService} from '../services/driver.service';
+import {ClientRequestForm} from './client-request-form';
+import {StreetService} from '../services/street.service';
 
 @Component({
   selector: 'app-driver-offer',
@@ -12,11 +14,19 @@ import {DriverService} from '../driver.service';
 export class DriverOfferComponent implements OnInit {
 
   driverForm: FormGroup;
+  searchForm: FormGroup;
   clientRequests: any;
   offer: any;
+  streets: any;
+  stateForm: FormGroup;
+  showDropDown = false;
+  streetNames: any = ['bauka', 'zhazi', 'nurlan', 'saule', 'gulya'];
+
   constructor(private driverService: DriverOfferService,
               private driverOnlineService: DriverService,
-              private clientService: ClientRequestService) {
+              private clientService: ClientRequestService,
+              private streetService: StreetService,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -25,9 +35,22 @@ export class DriverOfferComponent implements OnInit {
       'pointB': new FormControl('', Validators.required),
       'price': new FormControl('', Validators.required)
     });
+    this.searchForm = new FormGroup( {
+      'departure': new FormControl('', Validators.required),
+      'arrival': new FormControl('', Validators.required)
+    });
     this.getRequests();
     this.getOnlineClients();
+    this.getStreets();
+    this.initForm();
   }
+
+  initForm(): FormGroup {
+    return this.stateForm = this.fb.group({
+      search: [null]
+    });
+  }
+
 
   getOnlineClients() {
     this.driverOnlineService.getOnlineClients().subscribe(data => {
@@ -41,8 +64,21 @@ export class DriverOfferComponent implements OnInit {
     });
   }
 
+  getStreets() {
+    this.streetService.getStreets().subscribe( data => {
+      this.streets = data;
+      console.log(this.streets);
+    });
+  }
+
   onSearch() {
-    
+    console.log(this.searchForm);
+    const param = new ClientRequestForm();
+    param.arrival = this.searchForm.get('arrival').value;
+    param.departure = this.searchForm.get('departure').value;
+    this.clientService.searchRequests(param).subscribe( data => {
+      console.log(data);
+    });
   }
 
   onSubmit() {
@@ -56,6 +92,22 @@ export class DriverOfferComponent implements OnInit {
     this.driverService.putOffer(this.offer).subscribe(data => {
       console.log(data);
     });
+  }
+
+  selectValue(value) {
+    this.stateForm.patchValue({"search": value});
+    this.showDropDown = false;
+  }
+  closeDropDown() {
+    this.showDropDown = !this.showDropDown;
+  }
+
+  openDropDown() {
+    this.showDropDown = false;
+  }
+
+  getSearchValue() {
+    return this.stateForm.value.search;
   }
 }
 

@@ -29,18 +29,66 @@
 </div>
 <br>
 <br>
-<div class="col-sm-10">
-  <div class="input-group col-sm-3">
-    <input type="text" class="form-control">
-    <span class="input-group-btn">
-      <a class="btn btn-default" type="button" (click)="onSearch()">Search</a>
-    </span>
-  </div>
-  <div *ngFor="let request of clientRequests">
-    Point A: {{request.pointA}}
-    Point B: {{request.pointB}}
-    Price: {{request.price}}
-    Login: <span *ngIf="request.client">{{ request.client.login }}</span>
-    <br>
-  </div>
+<div style="margin-bottom: 10px">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="col-sm-6">
+      <div class="form-group row">
+        <label class="col-sm-3" for="departure">
+          Point of Departure
+        </label>
+        <div class="col-sm-6">
+          <input type="text" formControlName="departure" id="departure" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3" for="arrival">
+          Point of Arrival
+        </label>
+        <div>
+          <input type="text" formControlName="arrival" id="arrival" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <button class="btn btn-default float-right" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
 </div>
+<div *ngFor="let request of clientRequests">
+  Point A: {{request.pointA}}
+  Point B: {{request.pointB}}
+  Price: {{request.price}}
+  Login: <span *ngIf="request.client">{{ request.client.login }}</span>
+  <br>
+</div>
+
+<header class='flex-container flex-center'>
+  <div class='width-25'></div>
+  <div class="width-half">
+    <label for="search">
+      <i class='fa fa-search icon-pos color-purple'></i>
+    </label>
+    <form [formGroup]='stateForm' autocomplete="new-password" novalidate>
+      <input id='search' placeholder="Search for a state" formControlName='search' (click)='openDropDown() ' class=' input-underline search-bar ' type='text'>
+    </form>
+    <div clickOutside (clickOutside)="closeDropDown()">
+      <div *ngIf='showDropDown' class='search-drop-down'>
+        <div (click)='selectValue(s)' class='search-results ' *ngFor="let s of streetNames | searchFilter: getSearchValue()">
+          <a [innerHTML]="s | letterBold: getSearchValue()">
+            {{s}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='width-25 '></div>
+</header>
+<main>
+  <div class='flex-container card-container flex-wrap flex-center '>
+    <div class='flex-container card-dimensions card flex-center width-100 ' *ngFor='let s of streetNames | searchFilter: getSearchValue()'>
+      <div class='width-5 '></div>
+      {{s}}
+      <div class='width-5 '></div>
+    </div>
+  </div>
+</main>

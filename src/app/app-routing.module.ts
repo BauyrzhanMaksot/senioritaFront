@@ -5,8 +5,8 @@ import {RegisterComponent} from './register/register.component';
 import {HomeComponent} from './home/home.component';
 import {ClientRequestComponent} from './client-request/client-request.component';
 import {DriverOfferComponent} from './driver-offer/driver-offer.component';
-import {DriverGuard} from './driver.guard';
-import {ClientGuard} from './client.guard';
+import {DriverGuard} from './guard/driver.guard';
+import {ClientGuard} from './guard/client.guard';
 import {ForbiddenComponent} from './forbidden/forbidden.component';
 
 const routes: Routes = [
