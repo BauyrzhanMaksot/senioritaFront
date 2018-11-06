@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AppService} from '../app.service';
-import {CookieService} from 'angular2-cookie/core';
 
 @Injectable()
 export class LoginService {
@@ -11,8 +10,7 @@ export class LoginService {
 
   constructor(private http: HttpClient,
               private router: Router,
-              private appService: AppService,
-              private cookie: CookieService) { }
+              private appService: AppService) { }
 
 
   prepare(obj): any {

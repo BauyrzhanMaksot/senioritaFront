@@ -9,7 +9,6 @@ import {RouterModule} from '@angular/router';
 import {AppService} from './app.service';
 import {AuthorizeInterceptor} from './authorize.interceptor';
 import { LoginComponent } from './login/login.component';
-import {CookieService} from 'angular2-cookie/core';
 import { RegisterComponent } from './register/register.component';
 import {RegisterService} from './services/register.service';
 import { HomeComponent } from './home/home.component';
@@ -31,12 +30,10 @@ import { HistoryComponent } from './history/history.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { MapsComponent } from './maps/maps.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule, MatFormFieldModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {ComponentsModule} from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -50,17 +47,10 @@ import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule, MatF
     SearchFilterPipe,
     LetterBoldPipe,
     DropdownDirective,
-    HistoryComponent,
-    UserProfileComponent,
-    TableListComponent,
-    MapsComponent,
-    DashboardComponent,
-    FooterComponent,
-    SidebarComponent,
-    NavbarComponent,
     AdminLayoutComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -71,11 +61,11 @@ import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule, MatF
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ComponentsModule
   ],
   providers: [LoginService,
               AppService,
-              CookieService,
               RegisterService,
               ClientRequestService,
               DriverOfferService,

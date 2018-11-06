@@ -8,6 +8,7 @@ import {DriverOfferComponent} from './driver-offer/driver-offer.component';
 import {DriverGuard} from './guard/driver.guard';
 import {ClientGuard} from './guard/client.guard';
 import {ForbiddenComponent} from './forbidden/forbidden.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,15 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent
-  }
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+      }]}
 ];
 
 
