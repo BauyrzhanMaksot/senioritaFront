@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ClientRequestService} from '../services/client-request.service';
+import {ClientRequestService} from '../../client/services/client-request.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DriverOfferService} from '../services/driver-offer.service';
 import {DriverService} from '../services/driver.service';
 import {ClientRequestForm} from './client-request-form';
-import {StreetService} from '../services/street.service';
+import {StreetService} from '../../services/street.service';
 
 @Component({
   selector: 'app-driver-offer',

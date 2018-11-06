@@ -20,12 +20,11 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
      ROUTES = [
-      { path: '/admin/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-      { path: '/admin/user-profile', title: 'User Profile',  icon: 'person', class: '' },
-      { path: '/admin/table-list', title: 'Requests',  icon: 'content_paste', class: '' },
-      { path: '/admin/history', title: 'History',  icon: 'library_books', class: '' },
+      { path: '/driver/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+      { path: '/driver/user-profile', title: 'User Profile',  icon: 'person', class: '' },
+      { path: '/driver/table-list', title: 'Requests',  icon: 'content_paste', class: '' },
+      { path: '/driver/history', title: 'History',  icon: 'library_books', class: '' },
     ];
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
