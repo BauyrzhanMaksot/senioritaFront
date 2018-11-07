@@ -44,10 +44,12 @@ export class LoginComponent implements OnInit {
 
   getUser() {
     this.appService.getData3().subscribe(
-      (user) => {
+      (user: any) => {
         console.log(user);
         this.currentUser.setCurrentUser(user);
-        this.router.navigate(['home']);
+        if (user.role.name != null) {
+          this.router.navigate([user.role.name]);
+        }
       }
     );
   }

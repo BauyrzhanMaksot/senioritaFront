@@ -16,6 +16,7 @@ import {DriverOfferService} from './services/driver-offer.service';
 import {DriverOfferComponent} from './driver-offer/driver-offer.component';
 import {SearchFilterPipe} from '../client/pipe/search-filter.pipe';
 import {LetterBoldPipe} from '../client/pipe/letter-bold.pipe';
+import {OrderService} from 'app/driver/services/order.service';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import {LetterBoldPipe} from '../client/pipe/letter-bold.pipe';
   ],
   providers: [
     DriverService,
+    OrderService,
     DriverOfferService
   ]
 })

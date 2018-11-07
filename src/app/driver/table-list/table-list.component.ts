@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DriverService} from '../services/driver.service';
+import {OrderService} from '../services/order.service';
 
 @Component({
   selector: 'app-table-list',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableListComponent implements OnInit {
 
-  constructor() { }
+  clientRequests: any;
+
+  constructor(private driverService: DriverService,
+              private orderService: OrderService) { }
 
   ngOnInit() {
+    this.getRequests();
   }
 
+  getRequests() {
+    this.driverService.getRequests().subscribe( data => {
+      this.clientRequests = data;
+      console.log(data);
+    });
+  }
+
+  acceptRequest(offer_id: any) {
+    console.log('accepted');
+    this.orderService.acceptOffer(offer_id).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

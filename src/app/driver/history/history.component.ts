@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DriverService} from '../services/driver.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  history: any;
+
+  constructor(private driverService: DriverService) { }
 
   ngOnInit() {
+    this.getHistory();
   }
 
+  getHistory() {
+    this.driverService.getHistoryDriver().subscribe( data => {
+      console.log(data);
+      this.history = data;
+    });
+  }
 }

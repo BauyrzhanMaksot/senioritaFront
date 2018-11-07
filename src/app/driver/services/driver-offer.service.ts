@@ -9,8 +9,4 @@ export class DriverOfferService {
   putOffer(request: any) {
     return this.http.post('/rest/putOffer', request);
   }
-
-  getOffers() {
-    return this.http.get('/rest/getOffers');
-  }
 }

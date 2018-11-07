@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ClientRequestService} from '../services/client-request.service';
 import {DriverOfferService} from '../../driver/services/driver-offer.service';
-import {OrderService} from '../../services/order.service';
+import {OrderService} from '../../driver/services/order.service';
 
 @Component({
   selector: 'app-client-request',
@@ -17,7 +17,6 @@ export class ClientRequestComponent implements OnInit {
   histories: any;
 
   constructor(private clientService: ClientRequestService,
-              private driverService: DriverOfferService,
               private orderService: OrderService) {
   }
 
@@ -32,14 +31,14 @@ export class ClientRequestComponent implements OnInit {
   }
 
   getHistory() {
-    this.clientService.getHistoryClient().subscribe( data => {
+    this.clientService.getHistory().subscribe( data => {
       console.log(data);
       this.histories = data;
     });
   }
 
   getOffers() {
-    this.driverService.getOffers().subscribe( data => {
+    this.clientService.getOffers().subscribe( data => {
       this.driverOffers = data;
     });
   }

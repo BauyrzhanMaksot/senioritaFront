@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CurrentUser} from '../../model/current-user';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -16,15 +17,19 @@ export let ROUTES: RouteInfo[];
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  user: any;
+  role: any = '';
 
-  constructor() { }
+  constructor(private currentUser: CurrentUser) { }
 
   ngOnInit() {
+    this.user = JSON.parse(this.currentUser.getCurrentUser());
+    this.role = this.user.role.name;
      ROUTES = [
-      { path: '/driver/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-      { path: '/driver/user-profile', title: 'User Profile',  icon: 'person', class: '' },
-      { path: '/driver/table-list', title: 'Requests',  icon: 'content_paste', class: '' },
-      { path: '/driver/history', title: 'History',  icon: 'library_books', class: '' },
+      { path: '/' + this.role + '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
+      { path: '/' + this.role + '/user-profile', title: 'User Profile',  icon: 'person', class: '' },
+      { path: '/' + this.role + '/table-list', title: 'Requests',  icon: 'content_paste', class: '' },
+      { path: '/' + this.role + '/history', title: 'History',  icon: 'library_books', class: '' },
     ];
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }

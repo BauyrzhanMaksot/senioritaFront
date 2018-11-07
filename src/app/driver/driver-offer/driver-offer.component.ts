@@ -20,7 +20,7 @@ export class DriverOfferComponent implements OnInit {
   streets: any;
   stateForm: FormGroup;
   showDropDown = false;
-  streetNames: any = ['bauka', 'zhazi', 'nurlan', 'saule', 'gulya'];
+
 
   constructor(private driverService: DriverOfferService,
               private driverOnlineService: DriverService,
@@ -39,7 +39,6 @@ export class DriverOfferComponent implements OnInit {
       'departure': new FormControl('', Validators.required),
       'arrival': new FormControl('', Validators.required)
     });
-    this.getRequests();
     this.getOnlineClients();
     this.getStreets();
     this.initForm();
@@ -58,11 +57,6 @@ export class DriverOfferComponent implements OnInit {
     });
   }
 
-  getRequests() {
-    this.clientService.getRequests().subscribe( data => {
-      this.clientRequests = data;
-    });
-  }
 
   getStreets() {
     this.streetService.getStreets().subscribe( data => {

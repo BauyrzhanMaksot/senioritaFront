@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="card">
-      <div class="col-md-4" *ngFor="let menuItem of clientRequests">
+      <div class="col-md-4" *ngFor="let menuItem of driverOffers">
         <div class="card card-profile">
           <div class="card-avatar">
             <a href="/">
@@ -11,7 +11,7 @@
           <div class="card-body">
             <h6 class="card-category text-gray">{{ menuItem?.client?.login }}</h6>
             <h4 class="card-title">{{ menuItem.price}}</h4>
-            <a class="btn btn-danger btn-round" style="cursor:pointer" (click)="acceptRequest(menuItem.id)">Accept</a>
+            <a class="btn btn-danger btn-round" style="cursor:pointer" (click)="acceptOffer(menuItem.id)">Accept</a>
           </div>
         </div>
       </div>

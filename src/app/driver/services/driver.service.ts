@@ -9,4 +9,12 @@ export class DriverService {
   getOnlineClients() {
     return this.http.get('/rest/onlineClients');
   }
+
+  getRequests() {
+    return this.http.get('/rest/getRequests');
+  }
+
+  getHistoryDriver() {
+    return this.http.get('/rest/getHistory');
+  }
 }

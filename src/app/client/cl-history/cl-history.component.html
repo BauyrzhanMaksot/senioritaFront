@@ -25,20 +25,20 @@
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead class="">
-                  <th>Name</th>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Cost</th>
-                  <th>Date</th>
-                  <th>Comments</th>
+                <th>Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Cost</th>
+                <th>Date</th>
+                <th>Comments</th>
                 </thead>
                 <tbody *ngFor="let t of history">
-                  <td>{{ t?.client.login }}</td>
-                  <td>{{ t.pointA }}</td>
-                  <td>{{ t.pointB }}</td>
-                  <td>{{ t.price }}</td>
-                  <td>{{ t.date | date}}</td>
-                  <td>{{ t.clientComment }}</td>
+                <td>{{ t?.driver.login }}</td>
+                <td>{{ t.pointA }}</td>
+                <td>{{ t.pointB }}</td>
+                <td>{{ t.price }}</td>
+                <td>{{ t.date | date}}</td>
+                <td>{{ t.driverComment }}</td>
                 </tbody>
               </table>
             </div>

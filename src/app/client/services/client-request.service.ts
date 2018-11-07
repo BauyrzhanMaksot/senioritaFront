@@ -14,11 +14,15 @@ export class ClientRequestService {
     return this.http.get('/rest/getRequests');
   }
 
-  getHistoryClient() {
-    return this.http.get('/rest/getHistoryClient');
+  getHistory() {
+    return this.http.get('/rest/getHistory');
   }
 
   searchRequests(param: any) {
     return this.http.post('/rest/searchRequests', param);
+  }
+
+  getOffers() {
+    return this.http.get('/rest/getOffers');
   }
 }
