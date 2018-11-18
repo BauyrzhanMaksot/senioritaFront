@@ -17,7 +17,6 @@ import {CurrentUser} from './model/current-user';
 import {ClientGuard} from './guard/client.guard';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import {StreetService} from './services/street.service';
-import { DropdownDirective } from './dropdown.directive';
 import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule, MatFormFieldModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComponentsModule} from './components/components.module';
@@ -28,8 +27,7 @@ import {ComponentsModule} from './components/components.module';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ForbiddenComponent,
-    DropdownDirective
+    ForbiddenComponent
   ],
   imports: [
     BrowserAnimationsModule,

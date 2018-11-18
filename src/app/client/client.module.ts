@@ -13,6 +13,11 @@ import { ClUserProfileComponent } from './cl-user-profile/cl-user-profile.compon
 import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule} from '@angular/material';
 import { ClTableListComponent } from './cl-table-list/cl-table-list.component';
 import { ClHistoryComponent } from './cl-history/cl-history.component';
+import { ClLongTermRequestComponent } from './cl-long-term-request/cl-long-term-request.component';
+import { ClientImageUpdateComponent } from './client-image-update/client-image-update.component';
+import {ClientUpdateService} from 'app/client/services/client-update.service';
+import {ClientImageUpdateService} from 'app/client/services/client-image-update.service';
+import {ClientService} from 'app/client/services/client.service';
 
 @NgModule({
   imports: [
@@ -32,10 +37,15 @@ import { ClHistoryComponent } from './cl-history/cl-history.component';
     ClDashboardComponent,
     ClUserProfileComponent,
     ClTableListComponent,
-    ClHistoryComponent
+    ClHistoryComponent,
+    ClLongTermRequestComponent,
+    ClientImageUpdateComponent
   ],
   providers: [
     ClientRequestService,
+    ClientUpdateService,
+    ClientImageUpdateService,
+    ClientService,
     OrderService
   ]
 })

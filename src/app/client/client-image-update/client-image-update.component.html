@@ -1,0 +1,24 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title"> Update Image </h4>
+          </div>
+          <div class="card-body">
+            <img [src]="'http://localhost:8080/bake/images/'+this.user?.userImage?.location" height="400px" width="300px">
+            <form (ngSubmit)="onSubmit()" class="col-sm-9">
+              <div class="row">
+                <label class="btn btn-default">
+                  <input type="file" (change)="selectImage($event)">
+                </label>
+              </div>
+              <button class="btn btn-primary btn-sm float-right" type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

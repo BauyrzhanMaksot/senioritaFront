@@ -3,19 +3,19 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ClientRequestService} from '../services/client-request.service';
 
 @Component({
-  selector: 'app-cl-dashboard',
-  templateUrl: './cl-dashboard.component.html',
-  styleUrls: ['./cl-dashboard.component.css']
+  selector: 'app-cl-long-term-request',
+  templateUrl: './cl-long-term-request.component.html',
+  styleUrls: ['./cl-long-term-request.component.css']
 })
-export class ClDashboardComponent implements OnInit {
+export class ClLongTermRequestComponent implements OnInit {
 
-  clientForm: FormGroup;
+  clientLongForm: FormGroup;
   request: any;
 
   constructor(private clientService: ClientRequestService) { }
 
   ngOnInit() {
-    this.clientForm = new FormGroup({
+    this.clientLongForm = new FormGroup({
       'pointA': new FormControl('', Validators.required),
       'pointB': new FormControl('', Validators.required),
       'price': new FormControl('', Validators.required)
@@ -24,9 +24,9 @@ export class ClDashboardComponent implements OnInit {
 
   onSubmit() {
     this.request = new Object();
-    this.request.pointA = this.clientForm.get('pointA').value;
-    this.request.pointB = this.clientForm.get('pointB').value;
-    this.request.price = this.clientForm.get('price').value;
+    this.request.pointA = this.clientLongForm.get('pointA').value;
+    this.request.pointB = this.clientLongForm.get('pointB').value;
+    this.request.price = this.clientLongForm.get('price').value;
     if (this.request.pointA == '' || this.request.pointB == '') {
       return null;
     }

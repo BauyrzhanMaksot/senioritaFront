@@ -6,6 +6,8 @@ import {ClDashboardComponent} from './cl-dashboard/cl-dashboard.component';
 import {ClUserProfileComponent} from './cl-user-profile/cl-user-profile.component';
 import {ClTableListComponent} from './cl-table-list/cl-table-list.component';
 import {ClHistoryComponent} from './cl-history/cl-history.component';
+import {ClLongTermRequestComponent} from './cl-long-term-request/cl-long-term-request.component';
+import {ClientImageUpdateComponent} from './client-image-update/client-image-update.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,14 @@ const routes: Routes = [
       {
         path: 'history',
         component: ClHistoryComponent
+      },
+      {
+        path: 'long-term-request',
+        component: ClLongTermRequestComponent
+      },
+      {
+        path: 'image-update',
+        component: ClientImageUpdateComponent
       }
     ]
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ClientService} from '../services/client.service';
 
 @Component({
   selector: 'app-cl-user-profile',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClUserProfileComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
+    this.getUser();
   }
 
+  getUser() {
+    this.clientService.getUser().subscribe(
+      data => {
+        this.user = data;
+      }
+    );
+  }
 }

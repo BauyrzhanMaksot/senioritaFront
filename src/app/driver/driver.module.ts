@@ -17,6 +17,9 @@ import {DriverOfferComponent} from './driver-offer/driver-offer.component';
 import {SearchFilterPipe} from '../client/pipe/search-filter.pipe';
 import {LetterBoldPipe} from '../client/pipe/letter-bold.pipe';
 import {OrderService} from 'app/driver/services/order.service';
+import { DrLongTermOfferComponent } from './dr-long-term-offer/dr-long-term-offer.component';
+import { DrCurrentOffersComponent } from './dr-current-offers/dr-current-offers.component';
+import { DrCurrentRequestsComponent } from './dr-current-requests/dr-current-requests.component';
 
 @NgModule({
   imports: [
@@ -39,7 +42,10 @@ import {OrderService} from 'app/driver/services/order.service';
     HistoryComponent,
     MapsComponent,
     SearchFilterPipe,
-    LetterBoldPipe
+    LetterBoldPipe,
+    DrLongTermOfferComponent,
+    DrCurrentOffersComponent,
+    DrCurrentRequestsComponent
   ],
   providers: [
     DriverService,

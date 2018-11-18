@@ -8,6 +8,10 @@
             <p class="card-category">Complete your profile</p>
           </div>
           <div class="card-body">
+            <div>
+              <img [src]="'http://localhost:8080/bake/images/'+this.user?.userImage?.location" height="200px" width="150px">
+            </div>
+            <a style="cursor:pointer" routerLink="/client/image-update">Change image</a>
             <form>
               <div class="row">
                 <div class="col-md-6">
@@ -20,7 +24,6 @@
                     <input matInput placeholder="Last Name" type="text">
                   </mat-form-field>
                 </div>
-
               </div>
               <div class="row">
                 <div class="col-md-4">

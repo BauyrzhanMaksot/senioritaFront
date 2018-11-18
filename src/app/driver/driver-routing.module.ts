@@ -6,6 +6,9 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HistoryComponent} from './history/history.component';
 import {TableListComponent} from './table-list/table-list.component';
+import {DrLongTermOfferComponent} from './dr-long-term-offer/dr-long-term-offer.component';
+import {DrCurrentOffersComponent} from './dr-current-offers/dr-current-offers.component';
+import {DrCurrentRequestsComponent} from './dr-current-requests/dr-current-requests.component';
 
 const routes: Routes = [
   {
@@ -31,7 +34,20 @@ const routes: Routes = [
     {
       path: 'maps',
       component: MapsComponent
-    }]},
+    },
+      {
+        path: 'long-term-offer',
+        component: DrLongTermOfferComponent
+      },
+      {
+        path: 'current-offers',
+        component: DrCurrentOffersComponent
+      },
+      {
+        path: 'current-requests',
+        component: DrCurrentRequestsComponent
+      }
+    ]},
 ];
 
 @NgModule({
