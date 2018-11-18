@@ -1,7 +1,6 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import {LoginService} from './services/login.service';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {catchError} from 'rxjs/operators';
 
 @Injectable()
@@ -23,8 +22,9 @@ export class AuthorizeInterceptor implements HttpInterceptor {
     console.log(newRequest + " Bauka " + localStorage.getItem('token'));
 
     return next.handle(newRequest).pipe( catchError(error => {
-      console.log(error);
-      this.loginService.logout();
+      if (error.status == '401') {
+        this.loginService.logout();
+      }
       throw new Error('error');
     }));
   }

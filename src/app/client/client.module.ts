@@ -29,7 +29,7 @@ import {ClientService} from 'app/client/services/client.service';
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
-    MatTooltipModule,
+    MatTooltipModule
   ],
   declarations: [
     ClientComponent,

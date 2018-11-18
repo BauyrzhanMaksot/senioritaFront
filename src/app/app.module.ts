@@ -41,8 +41,7 @@ import {ComponentsModule} from './components/components.module';
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
-    MatFormFieldModule,
-    ComponentsModule
+    MatFormFieldModule
   ],
   providers: [LoginService,
               AppService,
