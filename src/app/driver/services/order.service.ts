@@ -10,4 +10,7 @@ export class OrderService {
     return this.http.get('/rest/acceptOffer/' + offer_id);
   }
 
+  acceptRequest(request_id: any) {
+    return this.http.get('/rest/acceptRequest/' + request_id);
+  }
 }

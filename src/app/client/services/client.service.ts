@@ -9,4 +9,8 @@ export class ClientService {
   getUser() {
     return this.http.get('/rest/getUser');
   }
+
+  updateUser(user) {
+    return this.http.post('/rest/updateUser', user);
+  }
 }

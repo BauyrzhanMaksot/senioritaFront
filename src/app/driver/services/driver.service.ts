@@ -15,6 +15,6 @@ export class DriverService {
   }
 
   getHistoryDriver() {
-    return this.http.get('/rest/getHistory');
+    return this.http.get('/rest/getHistoryDriver');
   }
 }

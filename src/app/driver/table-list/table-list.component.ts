@@ -27,7 +27,7 @@ export class TableListComponent implements OnInit {
 
   acceptRequest(offer_id: any) {
     console.log('accepted');
-    this.orderService.acceptOffer(offer_id).subscribe(data => {
+    this.orderService.acceptRequest(offer_id).subscribe(data => {
       console.log(data);
     });
   }

@@ -20,7 +20,7 @@ export class ClTableListComponent implements OnInit {
   }
 
   getRequests() {
-    this.clientService.getRequests().subscribe( data => {
+    this.clientService.getOffers().subscribe( data => {
       this.driverOffers = data;
       console.log(data);
     });

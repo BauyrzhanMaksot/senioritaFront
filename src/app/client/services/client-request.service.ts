@@ -15,7 +15,7 @@ export class ClientRequestService {
   }
 
   getHistory() {
-    return this.http.get('/rest/getHistory');
+    return this.http.get('/rest/getHistoryClient');
   }
 
   searchRequests(param: any) {

@@ -27,8 +27,7 @@ export class NavbarComponent implements OnInit {
     this.role = this.user.role.name;
     if (this.role == 'client') {
       this.initWebSocketConnectionClient();
-    }
-    else if (this.role == 'driver') {
+    } else if (this.role == 'driver') {
       this.initWebSocketConnectionDriver();
     }
   }
