@@ -21,6 +21,8 @@ import { DrLongTermOfferComponent } from './dr-long-term-offer/dr-long-term-offe
 import { DrCurrentOffersComponent } from './dr-current-offers/dr-current-offers.component';
 import { DrCurrentRequestsComponent } from './dr-current-requests/dr-current-requests.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
+import { DriverImageUpdateComponent } from './driver-image-update/driver-image-update.component';
+import {DriverImageUpdateService} from './services/driver-image-update.service';
 
 @NgModule({
   imports: [
@@ -47,12 +49,14 @@ import { ClientInfoComponent } from './client-info/client-info.component';
     DrLongTermOfferComponent,
     DrCurrentOffersComponent,
     DrCurrentRequestsComponent,
-    ClientInfoComponent
+    ClientInfoComponent,
+    DriverImageUpdateComponent
   ],
   providers: [
     DriverService,
     OrderService,
-    DriverOfferService
+    DriverOfferService,
+    DriverImageUpdateService
   ]
 })
 export class DriverModule { }

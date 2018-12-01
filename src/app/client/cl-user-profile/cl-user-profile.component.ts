@@ -23,6 +23,7 @@ export class ClUserProfileComponent implements OnInit {
     this.clientService.getUser().subscribe(
       data => {
         this.user = data;
+        console.log(this.user);
         this.setUser();
       }
     );

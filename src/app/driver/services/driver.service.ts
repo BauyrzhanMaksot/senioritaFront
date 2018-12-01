@@ -25,4 +25,12 @@ export class DriverService {
   getClientInfo(id) {
     return this.http.get('/rest/getClient/' + id);
   }
+
+  getUser() {
+    return this.http.get('/rest/getUser');
+  }
+
+  updateUser(user) {
+    return this.http.post('/rest/updateUser', user);
+  }
 }
