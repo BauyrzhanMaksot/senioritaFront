@@ -1,13 +1,47 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title"> Current Requests </h4>
+            <h4 class="card-title ">Travel history</h4>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header card-header-danger">
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                <i class="material-icons">search</i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
           </div>
           <div class="card-body">
-
+            <div class="table-responsive">
+              <table class="table table-hover" *ngIf="history">
+                <thead class="">
+                  <th>Name</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Cost</th>
+                  <th>Date</th>
+                  <th></th>
+                </thead>
+                <tbody *ngFor="let t of history">
+                  <td>{{ t?.client.login }}</td>
+                  <td>{{ t.pointA }}</td>
+                  <td>{{ t.pointB }}</td>
+                  <td>{{ t.price }}</td>
+                  <td>{{ t.date | date}}</td>
+                  <td><button class="btn btn-primary btn-sm" (click)="finish(t.id)">Finish</button></td>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

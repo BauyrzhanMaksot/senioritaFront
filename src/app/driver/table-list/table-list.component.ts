@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DriverService} from '../services/driver.service';
 import {OrderService} from '../services/order.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-table-list',
@@ -9,10 +10,11 @@ import {OrderService} from '../services/order.service';
 })
 export class TableListComponent implements OnInit {
 
-  clientRequests: any;
+  clientRequests: any = null;
 
   constructor(private driverService: DriverService,
-              private orderService: OrderService) { }
+              private orderService: OrderService,
+              private route: Router) { }
 
   ngOnInit() {
     this.getRequests();
@@ -30,5 +32,9 @@ export class TableListComponent implements OnInit {
     this.orderService.acceptRequest(offer_id).subscribe(data => {
       console.log(data);
     });
+  }
+
+  onClient(id) {
+    this.route.navigate(['driver/client-info', id]);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DriverService} from '../services/driver.service';
+import {OrderService} from '../services/order.service';
 
 @Component({
   selector: 'app-dr-current-requests',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrCurrentRequestsComponent implements OnInit {
 
-  constructor() { }
+  history: any;
+
+  constructor(private driverService: DriverService,
+              private orderService: OrderService) { }
 
   ngOnInit() {
+    this.getHistory();
   }
 
+  getHistory() {
+    this.driverService.getAcceptedHistoryDriver().subscribe( data => {
+      console.log(data);
+      this.history = data;
+    });
+  }
+
+  finish(id) {
+    this.orderService.finishRequest(id).subscribe( data => {
+      console.log(data);
+    });
+  }
 }

@@ -18,6 +18,7 @@ import { ClientImageUpdateComponent } from './client-image-update/client-image-u
 import {ClientUpdateService} from 'app/client/services/client-update.service';
 import {ClientImageUpdateService} from 'app/client/services/client-image-update.service';
 import {ClientService} from 'app/client/services/client.service';
+import { DriverInfoComponent } from './driver-info/driver-info.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import {ClientService} from 'app/client/services/client.service';
     ClTableListComponent,
     ClHistoryComponent,
     ClLongTermRequestComponent,
-    ClientImageUpdateComponent
+    ClientImageUpdateComponent,
+    DriverInfoComponent
   ],
   providers: [
     ClientRequestService,

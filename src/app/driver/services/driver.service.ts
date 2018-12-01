@@ -17,4 +17,12 @@ export class DriverService {
   getHistoryDriver() {
     return this.http.get('/rest/getHistoryDriver');
   }
+
+  getAcceptedHistoryDriver() {
+    return this.http.get('/rest/getAcceptedHistoryDriver');
+  }
+
+  getClientInfo(id) {
+    return this.http.get('/rest/getClient/' + id);
+  }
 }

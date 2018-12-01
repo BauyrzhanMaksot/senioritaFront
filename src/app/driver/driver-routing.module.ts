@@ -9,6 +9,7 @@ import {TableListComponent} from './table-list/table-list.component';
 import {DrLongTermOfferComponent} from './dr-long-term-offer/dr-long-term-offer.component';
 import {DrCurrentOffersComponent} from './dr-current-offers/dr-current-offers.component';
 import {DrCurrentRequestsComponent} from './dr-current-requests/dr-current-requests.component';
+import {ClientInfoComponent} from './client-info/client-info.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'current-requests',
         component: DrCurrentRequestsComponent
+      },
+      {
+        path: 'client-info/:id',
+        component: ClientInfoComponent
       }
     ]},
 ];

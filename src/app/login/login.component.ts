@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ((JSON.parse(this.currentUser.getCurrentUser()) != null)  && (JSON.parse(this.currentUser.getCurrentUser()).role.name == 'client')) {
+        this.router.navigate(['forbidden']);
+        return false;
+    }
     this.formLogin = new FormGroup({
       'login': new FormControl('', Validators.required),
       'password': new FormControl('', Validators.required)

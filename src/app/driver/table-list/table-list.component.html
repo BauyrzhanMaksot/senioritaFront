@@ -1,6 +1,9 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="card">
+      <div *ngIf="clientRequests == null || clientRequests.length == 0">
+        You do not have Requests.
+      </div>
       <div class="col-md-4" *ngFor="let menuItem of clientRequests">
         <div class="card card-profile">
           <div class="card-avatar">

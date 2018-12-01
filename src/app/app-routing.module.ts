@@ -6,10 +6,12 @@ import {HomeComponent} from './home/home.component';
 import {DriverGuard} from './guard/driver.guard';
 import {ClientGuard} from './guard/client.guard';
 import {ForbiddenComponent} from './forbidden/forbidden.component';
+import {LoginGuard} from './guard/login.guard';
 
 const routes: Routes = [
   {
     path: 'login',
+    canActivate: [LoginGuard],
     component: LoginComponent,
   }, {
     path: 'register',
@@ -24,6 +26,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    canActivate: [LoginGuard],
     component: LoginComponent
   },
   {

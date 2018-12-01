@@ -13,4 +13,8 @@ export class ClientService {
   updateUser(user) {
     return this.http.post('/rest/updateUser', user);
   }
+
+  getDriverInfo(id: number) {
+    return this.http.get('/rest/getDriver/' + id);
+  }
 }

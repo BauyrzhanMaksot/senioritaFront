@@ -20,6 +20,7 @@ import {StreetService} from './services/street.service';
 import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule, MatFormFieldModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComponentsModule} from './components/components.module';
+import {LoginGuard} from './guard/login.guard';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {ComponentsModule} from './components/components.module';
               StreetService,
               DriverGuard,
               ClientGuard,
+              LoginGuard,
               CurrentUser],
   bootstrap: [AppComponent]
 })

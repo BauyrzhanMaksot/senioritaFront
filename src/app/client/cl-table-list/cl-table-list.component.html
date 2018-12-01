@@ -1,15 +1,18 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="card">
+      <div *ngIf="driverOffers == null || driverOffers.length == 0">
+        You do not have Offers.
+      </div>
       <div class="col-md-4" *ngFor="let menuItem of driverOffers">
         <div class="card card-profile">
           <div class="card-avatar">
-            <a href="/">
+            <a style="cursor:pointer" (click)="onDriver(menuItem?.driver?.id)">
               <img class="img" src="../assets/img/faces/marc.jpg" />
             </a>
           </div>
           <div class="card-body">
-            <h6 class="card-category text-gray">{{ menuItem?.client?.login }}</h6>
+            <h6 class="card-category text-gray">{{ menuItem?.driver?.login }}</h6>
             <h4 class="card-title">{{ menuItem.price}}</h4>
             <a class="btn btn-danger btn-round" style="cursor:pointer" (click)="acceptOffer(menuItem.id)">Accept</a>
           </div>

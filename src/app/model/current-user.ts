@@ -11,4 +11,8 @@ export class CurrentUser {
   getCurrentUser() {
     return localStorage.getItem('currentUser');
   }
+
+  deleteCurrentUser() {
+    localStorage.clear();
+  }
 }

@@ -13,4 +13,12 @@ export class OrderService {
   acceptRequest(request_id: any) {
     return this.http.get('/rest/acceptRequest/' + request_id);
   }
+
+  finishRequest(id) {
+    return this.http.get('/rest/finishRequest/' + id);
+  }
+
+  finishOffer(id) {
+    return this.http.get('/rest/finishOffer/' + id);
+  }
 }

@@ -1,26 +1,31 @@
+<style>
+  @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+</style>
+
+
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Ticocar</h1>
 </div>
 <nav class="navbar bg-dark navbar-dark d-flex flex-row-reverse">
   <div>
-    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <form *ngIf="formLogin" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
       <div class="form-group row">
-        <label style="color: white; margin-right: 10px" for="login">
-          Login
-        </label>
-        <div>
-          <input type="login" formControlName='login' id="login" style="margin-right: 10px">
+
+        <div style="display: -ms-flexbox; /* IE10 */ display: flex; width: 170px;height:30px; margin-bottom: 15px; border: 2px solid red">
+          <i id="icon" style="color:black;marginTop:2px; background-color:white" class="fa fa-user fa-2x cust" ></i>
+          <input type="login" formControlName='login' id="login" style="marginTop:2px; height:20px; width: 145px; padding: 10px; outline: none; border:2px solid white" type="text/css" placeholder="Enter User Name" name="psw" required>
+
         </div>
-        <label style="color: white; margin-right: 10px" for="password">
-          Password
-        </label>
-        <div>
-          <input type="password" formControlName='password' id="password"  style="margin-right: 10px">
+
+        <div style="  display: -ms-flexbox; /* IE10 */ display: flex; width: 170px; height:30px; margin-bottom: 15px;  border: 2px solid red">
+          <i id="icon" style="color:black;marginTop:2px;padding-top: 2px;background-color:white" class="fa fa-lock fa-2x cust" ></i>
+          <input type="password" formControlName='password' id="password" style=" float:right;marginTop:2px; border:2px solid white;height:20px; width: 145px; padding: 10px; outline: none;" type="password" placeholder="Enter Password" name="psw" required>
         </div>
-        <button style="margin-right: 5px" class="btn btn-primary btn-sm pull-right" type="submit">Submit</button>
+        <br/>
+        <button style="float:right; background-color:red; color:white; border-radius:10px; height:30px; width: 100px; margin-right:5px" class="btn btn-primary btn-sm pull-right" type="submit">Submit</button>
       </div>
     </form>
-      <a class="btn float-right" (click)="createAccount()" style="color: white">Create account</a>
+    <a class="btn float-right" (click)="createAccount()" style="color: white">Create account</a>
   </div>
 </nav>
 
@@ -38,4 +43,3 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Senior Project, Nazarbayev University</p>
 </div>
-

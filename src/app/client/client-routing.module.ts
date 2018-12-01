@@ -8,6 +8,7 @@ import {ClTableListComponent} from './cl-table-list/cl-table-list.component';
 import {ClHistoryComponent} from './cl-history/cl-history.component';
 import {ClLongTermRequestComponent} from './cl-long-term-request/cl-long-term-request.component';
 import {ClientImageUpdateComponent} from './client-image-update/client-image-update.component';
+import {DriverInfoComponent} from './driver-info/driver-info.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'image-update',
         component: ClientImageUpdateComponent
+      },
+      {
+        path: 'driver-info/:id',
+        component: DriverInfoComponent
       }
     ]
   }

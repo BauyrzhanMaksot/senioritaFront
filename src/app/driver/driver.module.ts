@@ -20,6 +20,7 @@ import {OrderService} from 'app/driver/services/order.service';
 import { DrLongTermOfferComponent } from './dr-long-term-offer/dr-long-term-offer.component';
 import { DrCurrentOffersComponent } from './dr-current-offers/dr-current-offers.component';
 import { DrCurrentRequestsComponent } from './dr-current-requests/dr-current-requests.component';
+import { ClientInfoComponent } from './client-info/client-info.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { DrCurrentRequestsComponent } from './dr-current-requests/dr-current-req
     LetterBoldPipe,
     DrLongTermOfferComponent,
     DrCurrentOffersComponent,
-    DrCurrentRequestsComponent
+    DrCurrentRequestsComponent,
+    ClientInfoComponent
   ],
   providers: [
     DriverService,
