@@ -12,6 +12,10 @@ export class DrLongTermOfferComponent implements OnInit {
   driverLongForm: FormGroup;
   offer: any;
 
+  days = [{days: 1, name: 'Monday'}, {days: 2, name: 'Tuesday'}, {days: 3, name: 'Wednesday'},
+          {days: 4, name: 'Thursday'}, {days: 5, name: 'Friday'}, {days: 6, name: 'Saturday'},
+          {days: 7, name: 'Sunday'}];
+
   constructor(private driverService: DriverOfferService) { }
 
   ngOnInit() {
@@ -26,10 +30,13 @@ export class DrLongTermOfferComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.driverLongForm);
     this.offer = new Object();
     this.offer.pointA = this.driverLongForm.get('pointA').value;
     this.offer.pointB = this.driverLongForm.get('pointB').value;
     this.offer.price = this.driverLongForm.get('price').value;
+    this.offer.days = this.driverLongForm.get('days_of_the_week').value;
+    console.log(this.offer);
     if (this.offer.pointA == '' || this.offer.pointB == '') {
       return null;
     }

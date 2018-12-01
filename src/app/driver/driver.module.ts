@@ -9,7 +9,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {HistoryComponent} from './history/history.component';
 import {TableListComponent} from './table-list/table-list.component';
 import {ComponentsModule} from '../components/components.module';
-import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatTooltipModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DriverService} from './services/driver.service';
 import {DriverOfferService} from './services/driver-offer.service';
@@ -23,6 +23,7 @@ import { DrCurrentRequestsComponent } from './dr-current-requests/dr-current-req
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { DriverImageUpdateComponent } from './driver-image-update/driver-image-update.component';
 import {DriverImageUpdateService} from './services/driver-image-update.service';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -35,6 +36,8 @@ import {DriverImageUpdateService} from './services/driver-image-update.service';
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   declarations: [
     DriverComponent,
