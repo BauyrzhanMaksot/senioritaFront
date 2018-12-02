@@ -1,23 +1,31 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="card">
+      <div class="card-header card-header-danger">
+        <h4 class="card-title"> Offers from Drivers </h4>
+      </div>
       <div *ngIf="driverOffers == null || driverOffers.length == 0">
-        You do not have Offers.
+        <h5>You do not have any Offers for now.</h5>
       </div>
       <div class="col-md-4" *ngFor="let menuItem of driverOffers">
         <div class="card card-profile">
-          <div class="card-avatar">
-            <a style="cursor:pointer" (click)="onDriver(menuItem?.driver?.id)">
-              <img class="img" src="../assets/img/faces/marc.jpg" />
-            </a>
-          </div>
-          <div class="card-body">
-            <h6 class="card-category text-gray">{{ menuItem?.driver?.login }}</h6>
-            <h4 class="card-title">{{ menuItem.price}}</h4>
-            <a class="btn btn-danger btn-round" style="cursor:pointer" (click)="acceptOffer(menuItem.id)">Accept</a>
-          </div>
-        </div>
-      </div>
+          <div class="pt-4">
+            <div class="card-body">
+              <div class="card-avatar">
+                <a style="cursor:pointer" (click)="onDriver(menuItem?.driver?.id)">
+                  <img class="img" src="../assets/img/faces/marc.jpg" />
+                </a>
+              </div>
+              <div class="card-body">
+                <h6 class="card-category text-gray">{{ menuItem?.driver?.login }}</h6>
+
+                <h4 class="card-title">From: {{ menuItem.pointA}}</h4>
+                <h4 class="card-title">To: {{ menuItem.pointB}}</h4>
+                <h4 class="card-title">Price: {{ menuItem.price}}</h4>
+                <a class="btn btn-danger btn-round" style="cursor:pointer" (click)="acceptOffer(menuItem.id)">Accept</a>
+              </div>
+            </div>
+          </div></div></div>
     </div>
   </div>
 </div>

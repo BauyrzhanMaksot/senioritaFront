@@ -12,6 +12,9 @@ import {DrCurrentRequestsComponent} from './dr-current-requests/dr-current-reque
 import {ClientInfoComponent} from './client-info/client-info.component';
 import {ClientImageUpdateComponent} from '../client/client-image-update/client-image-update.component';
 import {DriverImageUpdateComponent} from './driver-image-update/driver-image-update.component';
+import {DrEditRegularOfferComponent} from './dr-edit-regular-offer/dr-edit-regular-offer.component';
+import {DrEditLongOfferComponent} from './dr-edit-long-offer/dr-edit-long-offer.component';
+
 
 const routes: Routes = [
   {
@@ -57,6 +60,14 @@ const routes: Routes = [
       {
         path: 'client-info/:id',
         component: ClientInfoComponent
+      },
+      {
+        path: 'edit-long-offer/:id',
+        component: DrEditLongOfferComponent
+      },
+      {
+        path: 'edit-regular-offer/:id',
+        component: DrEditRegularOfferComponent
       }
     ]},
 ];

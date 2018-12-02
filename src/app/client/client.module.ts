@@ -19,6 +19,7 @@ import {ClientUpdateService} from 'app/client/services/client-update.service';
 import {ClientImageUpdateService} from 'app/client/services/client-image-update.service';
 import {ClientService} from 'app/client/services/client.service';
 import { DriverInfoComponent } from './driver-info/driver-info.component';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { DriverInfoComponent } from './driver-info/driver-info.component';
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgSelectModule
   ],
   declarations: [
     ClientComponent,

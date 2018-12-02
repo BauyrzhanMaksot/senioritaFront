@@ -39,7 +39,8 @@ export class NavbarComponent implements OnInit {
     this.stompClient.connect({}, function(frame) {
       that.stompClient.subscribe('/bake/client', (message) => {
         if (message.body) {
-          $('#drm').append('<a class="dropdown-item" href="#">' + message.body + '</a>');
+          that.playAudio();
+          $('#drm').append('<a class="dropdown-item"  style="cursor:pointer" href="http://localhost:4200/client/table-list">' + message.body + '</a>');
           const x: number = +$('#notification-length').text();
           $('#notification-length').text( x + 1);
           console.log(message.body, x);
@@ -55,13 +56,29 @@ export class NavbarComponent implements OnInit {
     this.stompClient.connect({}, function(frame) {
       that.stompClient.subscribe('/bake/driver', (message) => {
         if (message.body) {
-          $('#drm').append('<a class="dropdown-item" href="#">' + message.body + '</a>');
+          that.playAudio();
+          $('#drm').append('<a class="dropdown-item"   style="cursor:pointer" href="http://localhost:4200/driver/table-list">' + message.body + '</a>');
           const x: number = +$('#notification-length').text();
           $('#notification-length').text( x + 1);
           console.log(message.body, x);
         }
       });
     });
+  }
+
+  onDriver() {
+    this.router.navigate(['driver/table-list']);
+  }
+
+  onClient() {
+    this.router.navigate(['client/table-list']);
+  }
+
+  playAudio() {
+    let audio = new Audio();
+    audio.src = '../assets/audio/Christmas-tone.mp3';
+    audio.load();
+    audio.play();
   }
 
   logout() {

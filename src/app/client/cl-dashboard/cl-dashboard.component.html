@@ -13,17 +13,25 @@
                 <label class="col-sm-3" for="pointA">
                   Point A
                 </label>
-                <div class="col-sm-6">
-                  <input type="text" formControlName='pointA' id="pointA" class="form-control">
-                </div>
+                <ng-select [items]="this.streets"
+                           bindLabel="streetName"
+                           bindValue="streetName"
+                           formControlName='pointA'
+                           class="col-sm-8"
+                           id="pointA">
+                </ng-select>
               </div>
               <div class="form-group row">
                 <label class="col-sm-3" for="pointB">
                   Point B
                 </label>
-                <div class="col-sm-6">
-                  <input type="text" formControlName='pointB' id="pointB" class="form-control">
-                </div>
+                <ng-select [items]="this.streets"
+                           bindLabel="streetName"
+                           bindValue="streetName"
+                           formControlName='pointB'
+                           class="col-sm-8"
+                           id="pointB">
+                </ng-select>
               </div>
               <div class="form-group row">
                 <label class="col-sm-3" for="price">

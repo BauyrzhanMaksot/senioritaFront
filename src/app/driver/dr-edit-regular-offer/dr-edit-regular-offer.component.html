@@ -4,34 +4,25 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title"> Make an order </h4>
-
+            <h4 class="card-title"> Edit an offer </h4>
           </div>
           <div class="card-body">
-            <form [formGroup]="driverForm" (ngSubmit)="onSubmit()" class="col-sm-13">
+            <form *ngIf="driverRegularForm" [formGroup]="driverRegularForm" (ngSubmit)="updateOffer()" class="col-sm-9">
               <div class="form-group row">
                 <label class="col-sm-3" for="pointA">
                   Point A
                 </label>
-                <ng-select [items]="this.streets"
-                           bindLabel="streetName"
-                           bindValue="streetName"
-                           formControlName='pointA'
-                           class="col-sm-8"
-                            id="pointA">
-                </ng-select>
+                <div class="col-sm-6">
+                  <input type="text" formControlName='pointA' id="pointA" class="form-control">
+                </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-3" for="pointB">
                   Point B
                 </label>
-                <ng-select [items]="this.streets"
-                           bindLabel="streetName"
-                           bindValue="streetName"
-                           formControlName='pointB'
-                           class="col-sm-8"
-                           id="pointB">
-                </ng-select>
+                <div class="col-sm-6">
+                  <input type="text" formControlName='pointB' id="pointB" class="form-control">
+                </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-3" for="price">

@@ -27,25 +27,26 @@ export class SidebarComponent implements OnInit {
     this.role = this.user.role.name;
     if (this.role == 'client') {
       ROUTES = [
-        { path: '/' + this.role + '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-        { path: '/' + this.role + '/user-profile', title: 'Client Profile',  icon: 'person', class: '' },
-        { path: '/' + this.role + '/table-list', title: 'Offers',  icon: 'content_paste', class: '' },
-        { path: '/' + this.role + '/history', title: 'History',  icon: 'library_books', class: '' },
-        { path: '/' + this.role + '/long-term-request', title: 'Long Term Request', icon: '', class: ''}
+        { path: '/' + this.role + '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+        { path: '/' + this.role + '/user-profile', title: 'Client Profile', icon: 'account_box', class: '' },
+        { path: '/' + this.role + '/table-list', title: 'Offers', icon: 'content_paste', class: '' },
+        { path: '/' + this.role + '/history', title: 'History', icon: 'history', class: '' },
+        { path: '/' + this.role + '/long-term-request', title: 'Long Term Request', icon: 'library_books', class: ''}
       ];
     } else if (this.role == 'driver') {
       ROUTES = [
-        { path: '/' + this.role + '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-        { path: '/' + this.role + '/user-profile', title: 'Driver Profile',  icon: 'person', class: '' },
-        { path: '/' + this.role + '/table-list', title: 'Requests',  icon: 'content_paste', class: '' },
-        { path: '/' + this.role + '/history', title: 'History',  icon: 'library_books', class: '' },
-        { path: '/' + this.role + '/long-term-offer', title: 'Long Term Offer',  icon: '', class: '' },
-        { path: '/' + this.role + '/current-offers', title: 'My Offers',  icon: '', class: '' },
-        { path: '/' + this.role + '/current-requests', title: 'Accepted Requests', icon: '', class: ''}
+        { path: '/' + this.role + '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+        { path: '/' + this.role + '/user-profile', title: 'Driver Profile', icon: 'account_box', class: '' },
+        { path: '/' + this.role + '/table-list', title: 'Requests', icon: 'content_paste', class: '' },
+        { path: '/' + this.role + '/history', title: 'History', icon: 'history', class: '' },
+        { path: '/' + this.role + '/long-term-offer', title: 'Long Term Offer', icon: 'library_books', class: '' },
+        { path: '/' + this.role + '/current-offers', title: 'My Offers', icon: 'list', class: '' },
+        { path: '/' + this.role + '/current-requests', title: 'Accepted Requests', icon: 'check_circle', class: ''}
       ];
     }
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
+
 
   isMobileMenu() {
     if ($(window).width() > 991) {

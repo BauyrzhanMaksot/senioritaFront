@@ -19,16 +19,19 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import {StreetService} from './services/street.service';
 import {MatButtonModule, MatInputModule, MatRippleModule, MatTooltipModule, MatFormFieldModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {ComponentsModule} from './components/components.module';
 import {LoginGuard} from './guard/login.guard';
-
+import {NgSelectModule} from '@ng-select/ng-select';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    SearchPipe
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,7 +45,10 @@ import {LoginGuard} from './guard/login.guard';
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgSelectModule,
+    BrowserAnimationsModule,
+    ToastModule
   ],
   providers: [LoginService,
               AppService,

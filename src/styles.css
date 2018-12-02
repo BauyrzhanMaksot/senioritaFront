@@ -1,2 +1,123 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.toast-title{
+  font-weight:bold;
+  color: #1b5e20;
+}
+.toast.message{
+  word-wrap:break-word;
+}
 
-/* You can add global styles to this file, and also import other style files */
+.toast-message a,
+.toast-message label{
+  color:white;
+}
+.toast-message a:hover{
+  color:#CCCCCC;
+  text-decoration:none;
+}
+.toast-close-button{
+  position:relative;
+  right:-0.3cm;
+  top:-0.6cm;
+  float:right;
+  font-size:20px;
+  font-weight:bold;
+  color:#FFFFFF;
+  -webkit-text-shadow: 0 1px 0 #ffffff;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.8;
+}
+.
+.toast-top-left{
+  top:10px;
+  left:10px;
+}
+.toast-top-right{
+  top:10px;
+  right:10px;
+}
+.toast-bottom-right{
+  right:10px;
+  bottom:10px;
+}
+.toast-bottom-left{
+  bottom:10px;
+  left:10px;
+}
+#toast-container{
+  pointer-events:none;
+  position:fixed;
+  z-index:99999;
+}
+#toast-container * {
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+#toast-container > div {
+
+  position:absolute;
+  top: 500px;
+  right: 0;
+  overflow:hidden;
+  margin:0 0 8px;
+  padding: 15px 15px 15px 50px;
+  width:380px;
+  -moz-border-radius:3px 3px 3px 3px;
+  -webkit-border-radius:3px 3px 3px 3px;
+  border-radius:3px 3px 3px 3px;
+  background-position:15px center;
+  background-repeat:no-repeat;
+  -moz-box-shadows: 0 0 12px #999999;
+  -webkit-box-shadow:0 0 12px #999999;
+  box-shadow:0 0 12px #999999;
+  color: #1b5e20;
+  opacity:0.6;
+
+}
+#toast-container > div.toast-custom {
+  padding:20px;
+  color: #1b5e20;
+
+}
+
+#toast-container > div.toast-custom .toast-close-button{
+
+  color:gray;
+}
+
+#toast-container > :hover{
+  -moz-box-shadow: 0 0 12px #000000;
+  -webkit-box-shadow:0 0 12px #000000;
+  box-shadow: 0 0 12px #000000;
+  opacity: 0.4;
+  cursor:pointer;
+}
+
+#toast-container.toast-top-center>div,
+#toast-container.toast-bottom-center>div{
+  width: 300px;
+  margin:auto;
+
+}
+#toast-container.toast-top-full-width > div,
+#toast-container.toast-bottom-full-width > div{
+  width:96%;
+  margin:auto;
+}
+.toast{
+  background-color:red;
+  pointer-events:auto;
+
+}
+.toast-success {
+  background: rgba(50, 150, 60, 0.3)
+}
+.toast-progress{
+  position:absolute;
+  left:10;
+  bottom:0;
+  height:8px;
+  background-color:black;
+  opacity:0.4;
+}

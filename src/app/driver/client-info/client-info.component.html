@@ -1,11 +1,50 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="card">
-      <div *ngIf="this.client">
-        <div>
-          <p>{{this.client.login}}</p>
-        </div>
+      <div class="card-header card-header-danger">
+        <h4 class="card-title ">Information about Client</h4>
       </div>
-    </div>
+
+      <div *ngIf="this.client" class="col-sm-9">
+
+        <div class="form-group row">
+          <label class="col-sm-3" >
+            ID
+          </label>
+          <div class="col-sm-6"><p>{{this.client.id}}</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3" >
+            First Name
+          </label>
+          <div class="col-sm-6"><p>{{this.client.firstName}}</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3" >
+            Last Name
+          </label>
+          <div class="col-sm-6"><p>{{this.client.lastName}}</p>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-3" >
+            Login
+          </label>
+          <div class="col-sm-6"> <p>{{this.client.login}}</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3" >
+            Email
+          </label>
+          <div class="col-sm-6"> <p>{{this.client.email}}</p>
+          </div>
+        </div>
+        <div class ="col-sm-9"> <img *ngIf="this.client?.userImage != null" [src]="'http://localhost:8080/bake/images/'+this.client?.userImage?.location" height="200px" width="150px">
+        </div>
+      </div></div>
   </div>
 </div>

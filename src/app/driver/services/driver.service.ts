@@ -14,6 +14,14 @@ export class DriverService {
     return this.http.get('/rest/getRequests');
   }
 
+  getOffer(id) {
+    return this.http.get('/rest/getOffer/' + id);
+  }
+
+  updateOffer(offer) {
+    return this.http.post('/rest/updateOffer', offer);
+  }
+
   getHistoryDriver() {
     return this.http.get('/rest/getHistoryDriver');
   }

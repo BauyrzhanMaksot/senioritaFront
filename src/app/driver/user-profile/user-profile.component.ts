@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ClientService} from '../../client/services/client.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DriverService} from '../services/driver.service';
+import {ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +15,10 @@ export class UserProfileComponent implements OnInit {
   userForm: any;
   request: any;
 
-  constructor(private driverService: DriverService) { }
+  constructor(private driverService: DriverService,
+              public toastr: ToastsManager,
+  vcr: ViewContainerRef) {
+  this.toastr.setRootViewContainerRef(vcr); }
 
   ngOnInit() {
     this.getUser();
@@ -44,6 +48,11 @@ export class UserProfileComponent implements OnInit {
     this.user.address = this.userForm.get('address').value;
     this.driverService.updateUser(this.user).subscribe(data => {
       console.log(data);
+      this.showSuccess();
     });
+  }
+
+  showSuccess() {
+    this.toastr.success('Success');
   }
 }

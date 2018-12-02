@@ -11,10 +11,10 @@
               <img *ngIf="this.user?.userImage != null" [src]="'http://localhost:8080/bake/images/'+this.user?.userImage?.location" height="200px" width="150px">
             </div>
             <a *ngIf="this.user?.userImage != null" style="cursor:pointer" routerLink="/client/image-update">
-              Change image
+              <i class="material-icons">photo_camera</i>
             </a>
             <a *ngIf="this.user?.userImage == null" style="cursor:pointer" routerLink="/client/image-update">
-              Set image
+              <i class="material-icons">add_a_photo</i>
             </a>
             <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="onSubmit()" class="col-sm-9">
               <div class="form-group row">

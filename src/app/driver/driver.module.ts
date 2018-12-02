@@ -24,6 +24,10 @@ import { ClientInfoComponent } from './client-info/client-info.component';
 import { DriverImageUpdateComponent } from './driver-image-update/driver-image-update.component';
 import {DriverImageUpdateService} from './services/driver-image-update.service';
 import {MatSelectModule} from '@angular/material/select';
+import { DrEditRegularOfferComponent } from './dr-edit-regular-offer/dr-edit-regular-offer.component';
+import { DrEditLongOfferComponent } from './dr-edit-long-offer/dr-edit-long-offer.component';
+import {NgSelectModule} from '@ng-select/ng-select';
+import {ToastModule} from 'ng2-toastr';
 
 @NgModule({
   imports: [
@@ -37,7 +41,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    NgSelectModule,
+    ToastModule.forRoot()
   ],
   declarations: [
     DriverComponent,
@@ -53,7 +59,9 @@ import {MatSelectModule} from '@angular/material/select';
     DrCurrentOffersComponent,
     DrCurrentRequestsComponent,
     ClientInfoComponent,
-    DriverImageUpdateComponent
+    DriverImageUpdateComponent,
+    DrEditRegularOfferComponent,
+    DrEditLongOfferComponent
   ],
   providers: [
     DriverService,
