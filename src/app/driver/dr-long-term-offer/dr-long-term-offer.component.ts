@@ -61,8 +61,8 @@ export class DrLongTermOfferComponent implements OnInit {
       return null;
     }
     this.driverService.putOffer(this.offer).subscribe(data => {
-      console.log(data);
       this.showSuccess();
+      console.log(data);
     });
   }
 
