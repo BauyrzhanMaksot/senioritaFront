@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderService} from '../../driver/services/order.service';
-import {DriverService} from '../../driver/services/driver.service';
 import {ClientRequestService} from '../services/client-request.service';
 import {Router} from '@angular/router';
 

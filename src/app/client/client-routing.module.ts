@@ -9,6 +9,11 @@ import {ClHistoryComponent} from './cl-history/cl-history.component';
 import {ClLongTermRequestComponent} from './cl-long-term-request/cl-long-term-request.component';
 import {ClientImageUpdateComponent} from './client-image-update/client-image-update.component';
 import {DriverInfoComponent} from './driver-info/driver-info.component';
+import {DrCurrentOffersComponent} from '../driver/dr-current-offers/dr-current-offers.component';
+import {DrCurrentRequestsComponent} from '../driver/dr-current-requests/dr-current-requests.component';
+import {ClCurrentOffersComponent} from './cl-current-offers/cl-current-offers.component';
+import {ClCurrentRequestsComponent} from './cl-current-requests/cl-current-requests.component';
+import {ClUserProfileViewComponent} from './cl-user-profile-view/cl-user-profile-view.component';
 
 const routes: Routes = [
   {
@@ -21,6 +26,10 @@ const routes: Routes = [
       },
       {
         path: 'user-profile',
+        component: ClUserProfileViewComponent
+      },
+      {
+        path: 'user-profile-edit',
         component: ClUserProfileComponent
       },
       {
@@ -34,6 +43,14 @@ const routes: Routes = [
       {
         path: 'long-term-request',
         component: ClLongTermRequestComponent
+      },
+      {
+        path: 'current-offers',
+        component: ClCurrentOffersComponent
+      },
+      {
+        path: 'current-requests',
+        component: ClCurrentRequestsComponent
       },
       {
         path: 'image-update',

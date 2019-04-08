@@ -28,6 +28,7 @@ import { DrEditRegularOfferComponent } from './dr-edit-regular-offer/dr-edit-reg
 import { DrEditLongOfferComponent } from './dr-edit-long-offer/dr-edit-long-offer.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {ToastModule} from 'ng2-toastr';
+import { UserProfileViewComponent } from './user-profile-view/user-profile-view.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import {ToastModule} from 'ng2-toastr';
     ClientInfoComponent,
     DriverImageUpdateComponent,
     DrEditRegularOfferComponent,
-    DrEditLongOfferComponent
+    DrEditLongOfferComponent,
+    UserProfileViewComponent
   ],
   providers: [
     DriverService,

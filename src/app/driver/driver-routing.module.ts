@@ -10,10 +10,10 @@ import {DrLongTermOfferComponent} from './dr-long-term-offer/dr-long-term-offer.
 import {DrCurrentOffersComponent} from './dr-current-offers/dr-current-offers.component';
 import {DrCurrentRequestsComponent} from './dr-current-requests/dr-current-requests.component';
 import {ClientInfoComponent} from './client-info/client-info.component';
-import {ClientImageUpdateComponent} from '../client/client-image-update/client-image-update.component';
 import {DriverImageUpdateComponent} from './driver-image-update/driver-image-update.component';
 import {DrEditRegularOfferComponent} from './dr-edit-regular-offer/dr-edit-regular-offer.component';
 import {DrEditLongOfferComponent} from './dr-edit-long-offer/dr-edit-long-offer.component';
+import {UserProfileViewComponent} from './user-profile-view/user-profile-view.component';
 
 
 const routes: Routes = [
@@ -27,8 +27,12 @@ const routes: Routes = [
     },
     {
       path: 'user-profile',
-      component: UserProfileComponent
+      component: UserProfileViewComponent
     },
+      {
+        path: 'user-profile-edit',
+        component: UserProfileComponent
+      },
     {
       path: 'table-list',
       component: TableListComponent

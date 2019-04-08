@@ -24,7 +24,7 @@
                   <th></th>
                 </thead>
                 <tbody *ngFor="let t of history">
-                  <td>{{ t?.client.login }}</td>
+                <td><a style="cursor:pointer" (click)="onClient(t?.client?.id)">{{ t?.client.login }}</a></td>
                   <td>{{ t.pointA }}</td>
                   <td>{{ t.pointB }}</td>
                   <td>{{ t.price }}</td>

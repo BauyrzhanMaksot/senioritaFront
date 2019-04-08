@@ -22,6 +22,10 @@ export class ClientRequestService {
     return this.http.post('/rest/searchRequests', param);
   }
 
+  getAcceptedHistoryClient() {
+    return this.http.get('/rest/getAcceptedHistoryClient');
+  }
+
   getOffers() {
     return this.http.get('/rest/getOffers');
   }

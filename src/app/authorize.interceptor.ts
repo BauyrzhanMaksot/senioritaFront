@@ -18,6 +18,7 @@ export class AuthorizeInterceptor implements HttpInterceptor {
     if (req.headers.get('noToken') === 'true') {
       return next.handle(req);
     }
+
     const newRequest = req.clone({
       headers: req.headers.set(
         'Authorization', 'Bearer ' + localStorage.getItem('token')

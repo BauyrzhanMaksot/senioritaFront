@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DriverService} from '../services/driver.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -10,10 +11,15 @@ export class HistoryComponent implements OnInit {
 
   history: any;
 
-  constructor(private driverService: DriverService) { }
+  constructor(private driverService: DriverService,
+              private route: Router) { }
 
   ngOnInit() {
     this.getHistory();
+  }
+
+  onClient(id) {
+    this.route.navigate(['driver/client-info', id]);
   }
 
   getHistory() {

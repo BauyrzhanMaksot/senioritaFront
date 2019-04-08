@@ -12,7 +12,6 @@ export class LoginService {
               private router: Router,
               private appService: AppService) { }
 
-
   prepare(obj): any {
     const searchParams: URLSearchParams = new URLSearchParams();
     for (const key in obj) {

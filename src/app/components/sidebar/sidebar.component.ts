@@ -31,7 +31,9 @@ export class SidebarComponent implements OnInit {
         { path: '/' + this.role + '/user-profile', title: 'Client Profile', icon: 'account_box', class: '' },
         { path: '/' + this.role + '/table-list', title: 'Offers', icon: 'content_paste', class: '' },
         { path: '/' + this.role + '/history', title: 'History', icon: 'history', class: '' },
-        { path: '/' + this.role + '/long-term-request', title: 'Long Term Request', icon: 'library_books', class: ''}
+        { path: '/' + this.role + '/long-term-request', title: 'Long Term Request', icon: 'library_books', class: ''},
+        { path: '/' + this.role + '/current-requests', title: 'My Requests', icon: 'list', class: '' },
+        { path: '/' + this.role + '/current-offers', title: 'Accepted Offers', icon: 'check_circle', class: ''}
       ];
     } else if (this.role == 'driver') {
       ROUTES = [

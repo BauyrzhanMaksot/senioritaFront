@@ -20,6 +20,10 @@ import {ClientImageUpdateService} from 'app/client/services/client-image-update.
 import {ClientService} from 'app/client/services/client.service';
 import { DriverInfoComponent } from './driver-info/driver-info.component';
 import {NgSelectModule} from '@ng-select/ng-select';
+import { ClCurrentOffersComponent } from './cl-current-offers/cl-current-offers.component';
+import { ClCurrentRequestsComponent } from './cl-current-requests/cl-current-requests.component';
+import {ToastModule} from 'ng2-toastr';
+import { ClUserProfileViewComponent } from './cl-user-profile-view/cl-user-profile-view.component';
 
 @NgModule({
   imports: [
@@ -32,7 +36,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
-    NgSelectModule
+    NgSelectModule,
+    ToastModule.forRoot()
   ],
   declarations: [
     ClientComponent,
@@ -43,7 +48,10 @@ import {NgSelectModule} from '@ng-select/ng-select';
     ClHistoryComponent,
     ClLongTermRequestComponent,
     ClientImageUpdateComponent,
-    DriverInfoComponent
+    DriverInfoComponent,
+    ClCurrentOffersComponent,
+    ClCurrentRequestsComponent,
+    ClUserProfileViewComponent
   ],
   providers: [
     ClientRequestService,

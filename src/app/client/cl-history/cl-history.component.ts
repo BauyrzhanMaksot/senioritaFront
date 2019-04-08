@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientRequestService} from '../services/client-request.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cl-history',
@@ -10,10 +11,15 @@ export class ClHistoryComponent implements OnInit {
 
   history: any;
 
-  constructor(private clientService: ClientRequestService) { }
+  constructor(private clientService: ClientRequestService,
+              private route: Router) { }
 
   ngOnInit() {
     this.getHistory();
+  }
+
+  onDriver(id) {
+    this.route.navigate(['client/driver-info', id]);
   }
 
   getHistory() {

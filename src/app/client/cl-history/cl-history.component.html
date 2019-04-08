@@ -33,7 +33,7 @@
                 <th>Comments</th>
                 </thead>
                 <tbody *ngFor="let t of history">
-                <td>{{ t?.driver.login }}</td>
+                <td><a style="cursor:pointer" (click)="onDriver(t?.driver?.id)">{{ t?.driver.login }}</a></td>
                 <td>{{ t.pointA }}</td>
                 <td>{{ t.pointB }}</td>
                 <td>{{ t.price }}</td>

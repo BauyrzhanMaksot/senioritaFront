@@ -24,6 +24,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(this.currentUser.getCurrentUser());
+    console.log(this.currentUser);
+    console.log(this.user);
     this.role = this.user.role.name;
     if (this.role == 'client') {
       this.initWebSocketConnectionClient();
@@ -38,7 +40,21 @@ export class NavbarComponent implements OnInit {
     const that = this;
     this.stompClient.connect({}, function(frame) {
       that.stompClient.subscribe('/bake/client', (message) => {
-        if (message.body) {
+        if (message.body.indexOf('id=') != -1) {
+          let id = '';
+          for (let i = message.body.indexOf('=') + 1; i < message.body.length; i++ ) {
+            id += message.body[i];
+          }
+          if (+id == that.user.id) {
+            that.playAudio();
+            $('#drm').append('<a class="dropdown-item"   style="cursor:pointer" href="http://localhost:4200/client/current-offers">' + message.body + '</a>');
+            const x: number = +$('#notification-length').text();
+            $('#notification-length').text( x + 1);
+            console.log(message.body, x);
+          } else {
+            console.log(+id + " " + that.user.id);
+          }
+        } else if (message.body) {
           that.playAudio();
           $('#drm').append('<a class="dropdown-item"  style="cursor:pointer" href="http://localhost:4200/client/table-list">' + message.body + '</a>');
           const x: number = +$('#notification-length').text();
@@ -55,7 +71,21 @@ export class NavbarComponent implements OnInit {
     const that = this;
     this.stompClient.connect({}, function(frame) {
       that.stompClient.subscribe('/bake/driver', (message) => {
-        if (message.body) {
+        if (message.body.indexOf('id=') != -1) {
+          let id = '';
+          for (let i = message.body.indexOf('=') + 1; i < message.body.length; i++ ) {
+            id += message.body[i];
+          }
+          if (+id == that.user.id) {
+            that.playAudio();
+            $('#drm').append('<a class="dropdown-item"   style="cursor:pointer" href="http://localhost:4200/driver/current-requests">' + message.body + '</a>');
+            const x: number = +$('#notification-length').text();
+            $('#notification-length').text( x + 1);
+            console.log(message.body, x);
+          } else {
+            console.log(+id + " " + that.user.id);
+          }
+        } else if (message.body) {
           that.playAudio();
           $('#drm').append('<a class="dropdown-item"   style="cursor:pointer" href="http://localhost:4200/driver/table-list">' + message.body + '</a>');
           const x: number = +$('#notification-length').text();

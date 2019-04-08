@@ -1,19 +1,20 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
-import {DriverService} from '../services/driver.service';
-import {OrderService} from '../services/order.service';
 import {ToastsManager} from 'ng2-toastr';
+import {OrderService} from '../../driver/services/order.service';
+import {DriverService} from '../../driver/services/driver.service';
+import {ClientRequestService} from '../services/client-request.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-dr-current-requests',
-  templateUrl: './dr-current-requests.component.html',
-  styleUrls: ['./dr-current-requests.component.css']
+  selector: 'app-cl-current-offers',
+  templateUrl: './cl-current-offers.component.html',
+  styleUrls: ['./cl-current-offers.component.css']
 })
-export class DrCurrentRequestsComponent implements OnInit {
+export class ClCurrentOffersComponent implements OnInit {
 
   history: any;
 
-  constructor(private driverService: DriverService,
+  constructor(private clientService: ClientRequestService,
               private orderService: OrderService,
               public toastr: ToastsManager,
               private route: Router,
@@ -25,25 +26,26 @@ export class DrCurrentRequestsComponent implements OnInit {
   }
 
   getHistory() {
-    this.driverService.getAcceptedHistoryDriver().subscribe( data => {
+    this.clientService.getAcceptedHistoryClient().subscribe( data => {
       console.log(data);
       this.history = data;
     });
   }
 
   finish(id) {
-    this.orderService.finishRequest(id).subscribe( data => {
+    this.orderService.finishOffer(id).subscribe( data => {
       console.log(data);
       this.showSuccess();
       this.getHistory();
     });
   }
 
-  onClient(id) {
-    this.route.navigate(['driver/client-info', id]);
+  onDriver(id) {
+    this.route.navigate(['client/driver-info', id]);
   }
 
   showSuccess() {
     this.toastr.success('Success');
   }
+
 }

@@ -4,30 +4,32 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title ">Travel history</h4>
+            <h4 class="card-title ">Accepted history</h4>
+
           </div>
+
         </div>
       </div>
       <div class="col-md-12">
         <div class="card card-plain">
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-hover">
+              <table class="table table-hover" *ngIf="history">
                 <thead class="">
                   <th>Name</th>
                   <th>From</th>
                   <th>To</th>
                   <th>Cost</th>
                   <th>Date</th>
-                  <th>Comments</th>
+                  <th></th>
                 </thead>
                 <tbody *ngFor="let t of history">
-                <td><a style="cursor:pointer" (click)="onClient(t?.client?.id)">{{ t?.client.login }}</a></td>
+                  <td> <a style="cursor:pointer" (click)="onDriver(t?.driver?.id)">{{ t?.driver.login }}</a></td>
                   <td>{{ t.pointA }}</td>
                   <td>{{ t.pointB }}</td>
                   <td>{{ t.price }}</td>
                   <td>{{ t.date | date}}</td>
-                  <td>{{ t.clientComment }}</td>
+                  <td><button class="btn btn-primary btn-sm" (click)="finish(t.id)">Finish</button></td>
                 </tbody>
               </table>
             </div>
